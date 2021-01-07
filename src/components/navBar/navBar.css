@@ -1,0 +1,48 @@
+:root {
+  --grey: #312f2f;
+}
+
+.navBar {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  /* justify-content: space-around; */
+  width: 100%;
+  background-color: rgb(228, 224, 224);
+  height: 90px;
+}
+
+.navBar ul {
+  list-style: none;
+  display: flex;
+  padding-left: 500px;
+}
+
+.navBar ul a {
+  font-size: 1.25em;
+}
+a {
+  text-decoration: none;
+  color: var(--grey);
+  margin-left: 150px;
+}
+
+.navBar h3 {
+  color: var(--grey);
+  font-size: 2em;
+  padding-left: 100px;
+  padding-right: 20px;
+}
+
+.brandName {
+  display: flex;
+  background: #a8cbea;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  height: 100%;
+  align-items: center;
+}
+
+a:hover {
+  border-bottom: 2px solid black;
+}
