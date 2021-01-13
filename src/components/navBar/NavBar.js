@@ -1,13 +1,12 @@
 import React from "react";
+import CartWidget from "./cartWidget/CartWidget";
 import "./navBar.css";
 
 function NavBar() {
   return (
     <div className="navBar">
       <div className="brandName">
-        <h3>
-          <a href="#">SimpleShop</a>
-        </h3>
+        <h3 className="simpleShop">SimpleShop</h3>
       </div>
       <ul>
         <li>
@@ -23,6 +22,7 @@ function NavBar() {
           <a href="#">Contacto</a>
         </li>
       </ul>
+      <CartWidget />
     </div>
   );
 }

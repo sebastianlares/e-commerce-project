@@ -1,0 +1,20 @@
+.itemListContainer {
+  display: flex;
+  width: 90%;
+  max-width: 1920px;
+  margin: auto;
+  padding-top: 90px;
+  flex-direction: column;
+}
+
+.itemListContainer h3 {
+  font-size: 40px;
+  margin: auto;
+  padding-top: 25px;
+  font-style: italic;
+}
+
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
