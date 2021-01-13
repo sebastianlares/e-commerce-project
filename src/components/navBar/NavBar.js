@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div className="navBar">
       <div className="brandName">
-        <h3 className="simpleShop">SimpleShop</h3>
+        <h3 className="simpleShop">SimpleCloths</h3>
       </div>
       <ul>
         <li>
