@@ -3,9 +3,9 @@ import "./itemCount.css";
 import Button from "@material-ui/core/Button";
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, onAdd, alert, setAlert }) {
   const [inStock, setInStock] = useState(initial);
-  const [alert, setAlert] = useState(false);
+  // const [alert, setAlert] = useState(false);
 
   const addToCount = () => {
     if (inStock >= stock) {
@@ -30,21 +30,21 @@ function ItemCount({ stock, initial }) {
     return () => clearTimeout(timeout);
   }, [alert]);
 
-  const onAdd = () => {
-    if (inStock === 0) {
-      setAlert(true);
-      return;
-    }
-    window.alert(`Unidades agregadas`);
-  };
+  // const onAdd = () => {
+  //   if (inStock === 0) {
+  //     setAlert(true);
+  //     return;
+  //   }
+  //   window.alert(`Unidades agregadas`);
+  // };
 
   return (
     <div className={`container ${stock === 0 && "disabled"}`}>
-      <div className={`countContainer ${alert && "error"}`}>
+      <div className={`count-container ${alert && "error"}`}>
         <button className="btn" onClick={substractToCount}>
           <RiSubtractLine />
         </button>
-        <p className="displayCount">{stock === 0 ? stock : inStock}</p>
+        <p className="display-count">{stock === 0 ? stock : inStock}</p>
         <button className="btn" onClick={addToCount}>
           <RiAddLine />
         </button>
@@ -53,7 +53,7 @@ function ItemCount({ stock, initial }) {
         variant="outlined"
         color="primary"
         style={{ width: "100%" }}
-        onClick={() => onAdd()}
+        onClick={() => onAdd(inStock)}
       >
         Agregar al Carrito
       </Button>

@@ -1,1 +1,1 @@
-E-commerce project using React, itself being the final project of the React course of Coderhouse.
+Proyecto de E-commerce creado usando React, siendo el mismo el proyecto final de Coderhouse.

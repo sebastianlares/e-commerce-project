@@ -4,8 +4,8 @@ import "./navBar.css";
 
 function NavBar() {
   return (
-    <div className="navBar">
-      <div className="brandName">
+    <div className="navbar">
+      <div className="brand-name">
         <h3 className="simpleShop">SimpleCloths</h3>
       </div>
       <ul>

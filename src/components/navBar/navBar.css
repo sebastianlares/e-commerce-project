@@ -2,7 +2,7 @@
   --grey: #312f2f;
 }
 
-.navBar {
+.navbar {
   display: flex;
   position: absolute;
   align-items: center;
@@ -12,13 +12,13 @@
   height: 90px;
 }
 
-.navBar ul {
+.navbar ul {
   list-style: none;
   display: flex;
   padding-left: 500px;
 }
 
-.navBar ul a {
+.navbar ul a {
   font-size: 1.25em;
 }
 a {
@@ -27,7 +27,7 @@ a {
   margin-left: 130px;
 }
 
-.brandName {
+.brand-name {
   display: flex;
   background: #a8cbea;
   border-top-right-radius: 50px;

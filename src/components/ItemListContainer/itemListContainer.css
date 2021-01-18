@@ -1,4 +1,8 @@
-.itemListContainer {
+:root {
+  --grey: #312f2f;
+}
+
+.item-list-container {
   display: flex;
   width: 90%;
   max-width: 1920px;
@@ -7,11 +11,11 @@
   flex-direction: column;
 }
 
-.itemListContainer h3 {
+.container-greeting {
   font-size: 40px;
   margin: auto;
   padding-top: 25px;
-  font-style: italic;
+  color: var(--grey);
 }
 
 .itemList {
