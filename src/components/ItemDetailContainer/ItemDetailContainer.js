@@ -6,10 +6,12 @@ function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
 
   const filterItemDetail = (arr = []) => {
-    const itemSearch = arr.find(
-      (item) => item.id === Math.round(Math.random() * 13)
-    );
-    return itemSearch;
+    console.log(arr);
+    let itemSearch = arr.find((item) => {
+      return item.id === Math.floor(Math.random() * 13);
+    });
+    console.log(itemSearch);
+    setItemDetail(itemSearch);
   };
 
   useEffect(() => {
@@ -29,8 +31,7 @@ function ItemDetailContainer() {
         return data;
       })
       .then((data) => {
-        const detailData = filterItemDetail(data);
-        setItemDetail(detailData);
+        filterItemDetail(data);
       });
   };
 
