@@ -13,17 +13,29 @@
 .section-background {
   width: 80%;
   margin: auto;
-  background: #e3e3e3;
+  background: linear-gradient(
+    #bdbdbd,
+    #c8c8c8,
+    #cbcbcb,
+    #cbcbcb,
+    #c5c5c5,
+    #bebebe,
+    #b5b5b5,
+    #adaead,
+    #a1a1a1
+  );
 }
 
 .home-section {
-  background: url(/src/images/background2.jpg) no-repeat center center/cover;
-  background-size: contain;
+  background: url(/src/images/background-mujer-1.jpg) no-repeat center
+    center/cover;
+  background-size: 570px;
   height: 700px;
   margin-top: 20px;
   margin-bottom: 80px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  background-position: 0px;
 }
 
 .año-section {

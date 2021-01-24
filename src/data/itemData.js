@@ -63,35 +63,29 @@ export const itemData = [
   },
   {
     id: 10,
-    title: "Bata Wet Cruda",
+    title: "Bata Wet",
     price: 3500,
     pictureURL:
       "https://d22fxaf9t8d39k.cloudfront.net/2eb3fb918992ff9463bc352933b5d369d5e72988f32c2a2e8d1130849e3a576019972.jpeg",
   },
+
   {
     id: 11,
-    title: "Bata Wet Aero",
-    price: 3500,
-    pictureURL:
-      "https://d22fxaf9t8d39k.cloudfront.net/1e8604600244ae2fef44e84aaa17fbad46f1e5c545d3d0a745e60bb97ee4649b19972.jpeg",
-  },
-  {
-    id: 12,
-    title: "Bata Chill Tostada",
+    title: "Bata Chill",
     price: 3500,
     pictureURL:
       "https://d22fxaf9t8d39k.cloudfront.net/e3561c021b177f8f053f161e9a0557ab62726fe0e6662b8ba3de4a68d545018119972.jpeg",
   },
   {
-    id: 13,
-    title: "bata-cozy",
+    id: 12,
+    title: "Bata Cozy",
     price: 3500,
     pictureURL:
       "https://d22fxaf9t8d39k.cloudfront.net/37ff3ea2145485fe224057758a152e9057f554c5822cf1c5fada4c7cb292592a19972.jpeg",
   },
   {
-    id: 14,
-    title: "bata-high",
+    id: 13,
+    title: "Bata High",
     price: 3500,
     pictureURL:
       "https://d22fxaf9t8d39k.cloudfront.net/97ed91a6318acaf944bdcfd924d999b15c82823a6dc5e3069b3b574bcfe35bbf19972.jpeg",

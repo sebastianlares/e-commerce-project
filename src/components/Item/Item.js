@@ -17,19 +17,19 @@ function Item({ itemData }) {
       setData(itemData);
     });
     getData.then((err) => console.log(err));
-  });
+  }, []);
 
   const { price, title, pictureURL } = data;
   return (
     <div className="item">
       {loading ? (
-        <div class="sk-chase">
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
+        <div className="sk-chase">
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
+          <div className="sk-chase-dot"></div>
         </div>
       ) : (
         <>
