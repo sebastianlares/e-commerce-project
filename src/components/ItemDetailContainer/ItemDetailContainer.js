@@ -5,6 +5,14 @@ function ItemDetailContainer() {
   const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      getData();
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   const filterItemDetail = (arr = []) => {
     console.log(arr);
     let itemSearch = arr.find((item) => {
@@ -13,14 +21,6 @@ function ItemDetailContainer() {
     console.log(itemSearch);
     setItemDetail(itemSearch);
   };
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      getData();
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timeout);
-  }, []);
 
   const getData = () => {
     const call = fetch("./data.json");

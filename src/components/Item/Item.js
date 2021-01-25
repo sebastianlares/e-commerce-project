@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./item.css";
 
-function Item({ itemData }) {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getData = new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => {
-        resolve();
-        setLoading(false);
-      }, 2000);
-      return () => clearTimeout(timeout);
-    });
-    getData.then((res) => {
-      setData(itemData);
-    });
-    getData.then((err) => console.log(err));
-  }, []);
-
-  const { price, title, pictureURL } = data;
+function Item({ item, loading }) {
+  const { price, title, pictureURL } = item;
   return (
     <div className="item">
       {loading ? (

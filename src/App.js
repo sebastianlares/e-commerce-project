@@ -4,7 +4,6 @@ import Item from "./components/Item/Item";
 import { Switch, Route, Link } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/navBar/NavBar";
-import ItemDetail from "./components/ItemDetail/ItemDetail";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
@@ -13,10 +12,13 @@ function App() {
       <NavBar />
       <ItemDetailContainer />
       {/* <Switch>
-        <Route exact path="/items">
+        <Route path="/Productos">
           <ItemListContainer
             greeting={"#HOMEWEAR #NOGENDER"}
           ></ItemListContainer>
+        </Route>
+        <Route exact path="/item/:id">
+          <ItemDetailContainer />
         </Route>
         <Route path="/" component={Home} />
       </Switch> */}

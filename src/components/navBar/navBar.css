@@ -15,7 +15,7 @@
 .navbar ul {
   list-style: none;
   display: flex;
-  padding-left: 500px;
+  padding-left: 380px;
 }
 
 .navbar ul a {
@@ -25,6 +25,7 @@ a {
   text-decoration: none;
   color: var(--grey);
   margin-left: 130px;
+  border: 2px solid transparent;
 }
 
 .brand-name {
