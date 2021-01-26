@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import Item from "../Item/Item";
 import { itemData } from "../../data/itemData";
 import "./itemList.css";
@@ -24,7 +25,11 @@ function ItemList() {
   return (
     <section className="item-list">
       {data.map((item, id) => {
-        return <Item item={item} key={id} loading={loading} />;
+        return (
+          <Link to={`/item/${id}`}>
+            <Item item={item} key={id} loading={loading} />
+          </Link>
+        );
       })}
     </section>
   );

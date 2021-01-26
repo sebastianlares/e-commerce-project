@@ -4,7 +4,12 @@ import "./navBar.css";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const links = ["Home", "Productos", "Nosotros", "Contacto"];
+  const links = [
+    { name: "Home", id: 1 },
+    { name: "Productos", id: 2 },
+    { name: "Nosotros", id: 3 },
+    { name: "Contacto", id: 4 },
+  ];
   return (
     <div className="navbar">
       <div className="brand-name">
@@ -13,10 +18,11 @@ function NavBar() {
         </Link>
       </div>
       <ul>
-        {links.map((link, index) => {
+        {links.map((link) => {
+          const { name, id } = link;
           return (
-            <Link to={link}>
-              <li key={index}>{link}</li>
+            <Link to={`${name === "Home" ? "/" : "/category/`${id}`"}`}>
+              <li key={id}>{name}</li>
             </Link>
           );
         })}

@@ -9,21 +9,22 @@ function ItemDetailContainer() {
     const timeout = setTimeout(() => {
       getData();
       setLoading(false);
-    }, 2000);
+    }, 1);
     return () => clearTimeout(timeout);
   }, []);
 
   const filterItemDetail = (arr = []) => {
     console.log(arr);
-    let itemSearch = arr.find((item) => {
-      return item.id === Math.floor(Math.random() * 13);
+    const numer = Math.ceil(Math.random() * 13 - 1);
+    let itemSearch = arr.filter((item) => {
+      return item.id === numer;
     });
-    console.log(itemSearch);
-    setItemDetail(itemSearch);
+
+    setItemDetail(itemSearch[0]);
   };
 
   const getData = () => {
-    const call = fetch("./data.json");
+    const call = fetch(".././data.json");
 
     call
       .then((res) => {
@@ -34,7 +35,7 @@ function ItemDetailContainer() {
         filterItemDetail(data);
       });
   };
-
+  console.log(itemDetail);
   return (
     <div className="detail-container">
       <ItemDetail itemDetail={itemDetail} loading={loading} />
