@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import ItemCount from "../ItemCount/ItemCount";
 import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList/ItemList";
 import "./itemListContainer.css";
 
 function ItemListContainer({ greeting }) {
-  // const [alert, setAlert] = useState(false);
-
-  // const onAdd = (stock) => {
-  //   if (stock === 0) {
-  //     setAlert(true);
-  //     return;
-  //   }
-  //   window.alert(`Unidades agregadas`);
-  // };
-
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const { categoryId } = useParams();
 
   useEffect(() => {

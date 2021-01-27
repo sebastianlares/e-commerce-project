@@ -1,8 +1,22 @@
 import React from "react";
 import "./itemDetail.css";
+import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react";
 
 function ItemDetail({ itemDetail, loading }) {
+  const [alert, setAlert] = useState(false);
+  const [itemAmount, setItemAmount] = useState(1);
+  const [cartReady, isCartReady] = useState(false);
   const { img, title, descr, price } = itemDetail;
+
+  const onAdd = (stock) => {
+    if (stock === 0) {
+      setAlert(true);
+      return;
+    }
+    setItemAmount(stock);
+    isCartReady(true);
+  };
 
   return (
     <div
@@ -34,6 +48,14 @@ function ItemDetail({ itemDetail, loading }) {
             <p className="discount-two">
               10% de descuento pagando por transferencia bancaria ó efectivo.
             </p>
+            <ItemCount
+              initial={1}
+              alert={alert}
+              stock={4}
+              onAdd={onAdd}
+              setAlert={setAlert}
+              cartReady={cartReady}
+            />
             <p className="descr">{descr}</p>
           </div>
         </>

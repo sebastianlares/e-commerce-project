@@ -3,12 +3,14 @@ import { Switch, Route } from "react-router-dom";
 import ItemListContainer from "./containers/ItemListContainer/ItemListContainer";
 import NavBar from "./components/navBar/NavBar";
 import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Switch>
+        <Route path="/cart" component={Cart} />
         <Route exact path="/category/:categoryId">
           <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
         </Route>
