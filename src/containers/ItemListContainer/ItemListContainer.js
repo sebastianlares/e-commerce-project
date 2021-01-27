@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import ItemCount from "../ItemCount/ItemCount";
 import { useParams } from "react-router-dom";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "../../components/ItemList/ItemList";
 import "./itemListContainer.css";
 
 function ItemListContainer({ greeting }) {
@@ -21,6 +21,7 @@ function ItemListContainer({ greeting }) {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setData([]);
     const timeout = setTimeout(() => {
       getData();
     }, 2000);
@@ -29,7 +30,6 @@ function ItemListContainer({ greeting }) {
 
   const getData = () => {
     const call = fetch(".././itemData.json");
-
     call
       .then((res) => {
         const itemList = res.json();

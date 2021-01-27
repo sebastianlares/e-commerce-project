@@ -3,8 +3,8 @@ import React from "react";
 import "./item.css";
 
 function Item({ item, loading }) {
-  console.log(loading, "---------ITEM LOADING");
   const { price, title, pictureURL, id } = item;
+
   return (
     <div className="item">
       {loading ? (
