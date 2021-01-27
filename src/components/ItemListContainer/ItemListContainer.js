@@ -1,17 +1,52 @@
-import React, { useState } from "react";
-import ItemCount from "../ItemCount/ItemCount";
+import React, { useState, useEffect } from "react";
+// import ItemCount from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import "./itemListContainer.css";
 
 function ItemListContainer({ greeting }) {
-  const [alert, setAlert] = useState(false);
+  // const [alert, setAlert] = useState(false);
 
-  const onAdd = (stock) => {
-    if (stock === 0) {
-      setAlert(true);
-      return;
-    }
-    window.alert(`Unidades agregadas`);
+  // const onAdd = (stock) => {
+  //   if (stock === 0) {
+  //     setAlert(true);
+  //     return;
+  //   }
+  //   window.alert(`Unidades agregadas`);
+  // };
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const { categoryId } = useParams();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      getData();
+    }, 2000);
+    return () => clearTimeout(timeout);
+  }, [categoryId]);
+
+  const getData = () => {
+    const call = fetch(".././itemData.json");
+
+    call
+      .then((res) => {
+        const itemList = res.json();
+        return itemList;
+      })
+      .then((itemList) => {
+        setLoading(false);
+        if (categoryId !== undefined) categoryFilter(itemList);
+        else setData(itemList);
+      });
+  };
+
+  const categoryFilter = (arr = []) => {
+    const filteredCategory = arr.filter(
+      (items) => items.categoryId === categoryId
+    );
+    setData(filteredCategory);
   };
 
   return (
@@ -24,7 +59,7 @@ function ItemListContainer({ greeting }) {
         alert={alert}
         setAlert={setAlert}
       /> */}
-      <ItemList />
+      <ItemList data={data} loading={loading} />
     </div>
   );
 }

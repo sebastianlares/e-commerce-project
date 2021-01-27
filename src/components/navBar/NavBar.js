@@ -21,8 +21,10 @@ function NavBar() {
         {links.map((link) => {
           const { name, id } = link;
           return (
-            <Link to={`${name === "Home" ? "/" : "/category/`${id}`"}`}>
-              <li key={id}>{name}</li>
+            <Link key={id} to={`${name === "Home"}` && "/"}>
+              <>
+                <li>{name}</li>
+              </>
             </Link>
           );
         })}

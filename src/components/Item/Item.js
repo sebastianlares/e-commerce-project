@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import "./item.css";
 
 function Item({ item, loading }) {
-  const { price, title, pictureURL } = item;
+  console.log(loading, "---------ITEM LOADING");
+  const { price, title, pictureURL, id } = item;
   return (
     <div className="item">
       {loading ? (
@@ -16,8 +18,12 @@ function Item({ item, loading }) {
         </div>
       ) : (
         <>
-          <img src={pictureURL} alt={title} />
-          <p className="item-title">{title}</p>
+          <Link to={`/item/${id}`}>
+            <img src={pictureURL} alt={title} />
+          </Link>
+          <Link to={`/item/${id}`}>
+            <p className="item-title">{title}</p>
+          </Link>
           <h4>${price},00 </h4>
         </>
       )}

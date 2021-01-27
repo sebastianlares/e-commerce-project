@@ -1,10 +1,8 @@
 import React from "react";
 import "./itemDetail.css";
-import { Link } from "react-router-dom";
 
 function ItemDetail({ itemDetail, loading }) {
-  if (itemDetail === undefined) return <> </>;
-  const { img, title, descr, price, id } = itemDetail;
+  const { img, title, descr, price } = itemDetail;
 
   return (
     <div

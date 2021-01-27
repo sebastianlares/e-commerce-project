@@ -23,6 +23,11 @@
   text-align: center;
   color: var(--grey);
   padding-bottom: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.item-title:hover {
+  color: rgb(194, 80, 72);
 }
 
 .item h4 {
@@ -33,6 +38,10 @@
 
 .item:hover img {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+.item:hover .item-title {
+  color: rgb(194, 80, 72);
 }
 
 .loading {
@@ -71,6 +80,15 @@
   background-color: rgb(20, 20, 20);
   border-radius: 100%;
   animation: sk-chase-dot-before 2s infinite ease-in-out both;
+}
+
+a {
+  text-decoration: none;
+  border: none;
+}
+
+a:hover {
+  border-bottom: none;
 }
 
 .sk-chase-dot:nth-child(1) {

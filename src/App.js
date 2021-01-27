@@ -1,6 +1,4 @@
 import "./App.css";
-import Home from "./components/Home/Home";
-import Item from "./components/Item/Item";
 import { Switch, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/navBar/NavBar";
@@ -11,13 +9,11 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route exact path="/category/:id">
+        <Route exact path="/category/:categoryId">
           <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
         </Route>
-        <Route exact path="/item/:id">
-          <ItemDetailContainer />
-        </Route>
-        <Route>
+        <Route path="/item/:id" component={ItemDetailContainer} />
+        <Route path="/">
           <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
         </Route>
         {/* <Route path="/" component={Home} /> */}

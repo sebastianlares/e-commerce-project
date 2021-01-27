@@ -1,27 +1,19 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
   const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       getData();
       setLoading(false);
-    }, 1);
+    }, 2000);
     return () => clearTimeout(timeout);
-  }, []);
-
-  const filterItemDetail = (arr = []) => {
-    console.log(arr);
-    const numer = Math.ceil(Math.random() * 13 - 1);
-    let itemSearch = arr.filter((item) => {
-      return item.id === numer;
-    });
-
-    setItemDetail(itemSearch[0]);
-  };
+  }, [id]);
 
   const getData = () => {
     const call = fetch(".././data.json");
@@ -35,7 +27,14 @@ function ItemDetailContainer() {
         filterItemDetail(data);
       });
   };
-  console.log(itemDetail);
+
+  const filterItemDetail = (arr = []) => {
+    let itemSearch = arr.filter((item) => {
+      return item.id === parseInt(id);
+    });
+    setItemDetail(itemSearch[0]);
+  };
+
   return (
     <div className="detail-container">
       <ItemDetail itemDetail={itemDetail} loading={loading} />
