@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./item.css";
+import { useGlobalContext } from "../../globalContext";
 
-function Item({ item, loading }) {
+function Item({ item }) {
+  const { loadingItems } = useGlobalContext();
+  console.log(loadingItems, "-------------");
   const { price, title, pictureURL, id } = item;
 
   return (
     <div className="item">
-      {loading ? (
+      {loadingItems ? (
         <div className="sk-chase">
           <div className="sk-chase-dot"></div>
           <div className="sk-chase-dot"></div>

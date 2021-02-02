@@ -9,7 +9,7 @@ function Home() {
           <div className="año-section">
             <h2>
               Nuevo Año, <br></br>
-              nuevo Comienzo
+              <span>Nuevo</span> Comienzo
             </h2>
             <p>
               Comenzá este año vistiéndote <br></br> con algo igual de cómodo
@@ -18,6 +18,7 @@ function Home() {
           </div>
         </section>
       </div>
+      <div className="section-background"></div>
     </div>
   );
 }

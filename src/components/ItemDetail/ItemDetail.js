@@ -2,12 +2,13 @@ import React from "react";
 import "./itemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ itemDetail, loading }) {
   const [alert, setAlert] = useState(false);
   const [itemAmount, setItemAmount] = useState(1);
   const [cartReady, isCartReady] = useState(false);
-  const { img, title, descr, price } = itemDetail;
+  const { img, title, descr, price, categoryId } = itemDetail;
 
   const onAdd = (stock) => {
     if (stock === 0) {
@@ -38,6 +39,12 @@ function ItemDetail({ itemDetail, loading }) {
         <>
           <img src={img} alt={title} />
           <div className="description">
+            <div className="category-links">
+              <Link to="/productos">Productos </Link>
+              <span>/ </span>
+              <Link to={`/category/${categoryId}`}>{categoryId} </Link>
+              <span>/ </span> {title}
+            </div>
             <h3>{title}</h3>
             <div className="discount">
               <p>${price},00 </p>

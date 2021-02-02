@@ -1,7 +1,9 @@
-.container {
-  width: 100%;
+:root {
+  --grey: #312f2f;
+}
 
-  margin: auto;
+.container {
+  width: 200px;
   margin-top: 15px;
 }
 
@@ -20,12 +22,14 @@ button {
 }
 
 .count-container p {
+  color: var(--grey);
   width: 100%;
   text-align: center;
   align-self: center;
 }
 
 .MuiButton-label {
+  color: var(--grey);
   font-size: 15px;
 }
 
@@ -45,6 +49,7 @@ button {
 }
 
 .cantidad {
+  color: var(--grey);
   font-size: 18px;
   padding-bottom: 7px;
   display: flex;

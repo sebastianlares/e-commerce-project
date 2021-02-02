@@ -8,7 +8,7 @@
   align-items: center;
   /* justify-content: space-around; */
   width: 100%;
-  background-color: rgb(228, 224, 224);
+  background-color: rgb(203 203 203);
   height: 90px;
 }
 
@@ -22,6 +22,8 @@
   font-size: 1.25em;
 }
 .navbar a {
+  text-transform: capitalize;
+
   text-decoration: none;
   color: var(--grey);
   margin-left: 130px;
@@ -30,7 +32,7 @@
 
 .brand-name {
   display: flex;
-  background: #a8cbea;
+  background: rgb(212, 138, 76);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   height: 100%;
@@ -38,7 +40,7 @@
 }
 
 .navbar a:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgb(212, 138, 76);
 }
 
 .simpleShop {

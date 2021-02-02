@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   const links = [
-    { name: "Home", id: 1 },
-    { name: "Productos", id: 2 },
-    { name: "Nosotros", id: 3 },
-    { name: "Contacto", id: 4 },
+    { name: "home", id: 1 },
+    { name: "productos", id: 2 },
+    { name: "nosotros", id: 3 },
+    { name: "contacto", id: 4 },
   ];
   return (
     <div className="navbar">
@@ -21,7 +21,7 @@ function NavBar() {
         {links.map((link) => {
           const { name, id } = link;
           return (
-            <Link key={id} to={`${name === "Home"}` && "/"}>
+            <Link key={id} to={`/${name}`}>
               <>
                 <li>{name}</li>
               </>

@@ -6,6 +6,7 @@ function ItemDetailContainer() {
   const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const { categoryId } = useParams();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -36,6 +37,12 @@ function ItemDetailContainer() {
 
   return (
     <div className="detail-container">
+      <h3
+        className="comfy"
+        style={{ display: `${loading ? "none" : "block"}` }}
+      >
+        Estate cómodo <span>todo</span> el día
+      </h3>
       <ItemDetail itemDetail={itemDetail} loading={loading} />
     </div>
   );

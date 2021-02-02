@@ -50,17 +50,16 @@
   line-height: 559px;
 }
 
-.sk-chase {
+.item .sk-chase {
   width: 40px;
   height: 40px;
   position: relative;
   animation: sk-chase 2.5s infinite linear both;
   background-color: rgb(255, 253, 253);
-
   display: flex;
-
   align-self: center;
   top: 50%;
+  margin-top: 0;
 }
 
 .sk-chase-dot {

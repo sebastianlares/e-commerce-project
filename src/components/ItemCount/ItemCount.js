@@ -50,7 +50,7 @@ function ItemCount({ stock, initial, onAdd, alert, setAlert, cartReady }) {
       ) : (
         <div className={`container ${stock === 0 && "disabled"}`}>
           <div className="cantidad">
-            <p>Cantidad</p> <p>Stock - {stock}</p>
+            <p>Cantidad</p> <p>Stock: {stock} u</p>
           </div>
           <div className={`count-container ${alert && "error"}`}>
             <button className="btn" onClick={substractToCount}>
