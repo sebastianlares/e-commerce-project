@@ -5,6 +5,7 @@ const AppContext = React.createContext();
 const GlobalProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loadingItems, setLoadingItems] = useState(true);
+  const [itemsOnCart, setItemsOnCart] = useState([]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -12,6 +13,15 @@ const GlobalProvider = ({ children }) => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const addItemToCart = (item, quantity) => {
+    const cartItem = { item, quantity };
+    return cartItem;
+  };
+
+  const removeItemFromCart = (item) => {
+    itemsOnCart.filter((i) => i.id !== item.id);
   };
 
   return (
@@ -22,6 +32,9 @@ const GlobalProvider = ({ children }) => {
         closeModal,
         loadingItems,
         setLoadingItems,
+        addItemToCart,
+        setItemsOnCart,
+        itemsOnCart,
       }}
     >
       {children}

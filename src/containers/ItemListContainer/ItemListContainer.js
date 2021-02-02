@@ -20,14 +20,15 @@ function ItemListContainer({ greeting }) {
     {},
     {},
   ]);
-  const { setLoadingItems } = useGlobalContext();
+  const { loadingItems, setLoadingItems } = useGlobalContext();
   const { categoryId } = useParams();
   // const [test, setTest] = useState();
 
   useEffect(() => {
+    setLoadingItems(true);
     const timeout = setTimeout(() => {
       getData();
-    }, 2000);
+    }, 1);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -44,31 +45,31 @@ function ItemListContainer({ greeting }) {
         else setData(itemList);
       });
   };
-  // useEffect(() => {
-  //   if (test === "Buzo") {
-  //     getData();
-  //   }
-  // }, [test]);
-  // const handlerCLick = (e) => {
-  //   console.log(e.target.value);
-  //   setTest(e.target.value);
-  // };
-
   const categoryFilter = (arr = []) => {
     const filteredCategory = arr.filter(
       (items) => items.categoryId === categoryId
     );
-    // setLoadingItems(false);
     setData(filteredCategory);
   };
-  // console.log(categoryId);
 
   return (
     <>
       <div className="item-list-container">
-        {/* <input type="text" onChange={handlerCLick} /> */}
         <p className="container-greeting">{greeting}</p>
-        <ItemList data={data} />
+        {loadingItems ? (
+          <div className="sk-listContainer">
+            <div className="sk-chase-dot"></div>
+            <div className="sk-chase-dot"></div>
+            <div className="sk-chase-dot"></div>
+            <div className="sk-chase-dot"></div>
+            <div className="sk-chase-dot"></div>
+            <div className="sk-chase-dot"></div>
+          </div>
+        ) : (
+          <>
+            <ItemList data={data} />
+          </>
+        )}
       </div>
     </>
   );

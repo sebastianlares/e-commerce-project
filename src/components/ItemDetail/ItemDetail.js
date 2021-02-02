@@ -3,11 +3,13 @@ import "./itemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../../globalContext";
 
 function ItemDetail({ itemDetail, loading }) {
   const [alert, setAlert] = useState(false);
   const [itemAmount, setItemAmount] = useState(1);
   const [cartReady, isCartReady] = useState(false);
+  const { addItemToCart, setItemsOnCart, itemsOnCart } = useGlobalContext();
   const { img, title, descr, price, categoryId } = itemDetail;
 
   const onAdd = (stock) => {
@@ -15,6 +17,9 @@ function ItemDetail({ itemDetail, loading }) {
       setAlert(true);
       return;
     }
+    const add = addItemToCart(itemDetail, stock);
+    setItemsOnCart([...itemsOnCart, add]);
+    console.log(itemsOnCart);
     setItemAmount(stock);
     isCartReady(true);
   };

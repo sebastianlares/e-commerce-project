@@ -11,8 +11,7 @@ function ItemDetailContainer() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       getData();
-      setLoading(false);
-    }, 2000);
+    }, 1);
     return () => clearTimeout(timeout);
   }, [id]);
 
@@ -24,6 +23,7 @@ function ItemDetailContainer() {
         return data;
       })
       .then((data) => {
+        setLoading(false);
         filterItemDetail(data);
       });
   };
