@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList/ItemList";
+import { getFireStore } from "../../firebase/index";
 import "./itemListContainer.css";
 import { useGlobalContext } from "../../globalContext";
 
 function ItemListContainer({ greeting }) {
-  const [data, setData] = useState([
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-  ]);
+  const [data, setData] = useState([]);
   const { loadingItems, setLoadingItems } = useGlobalContext();
   const { categoryId } = useParams();
   // const [test, setTest] = useState();
 
+  // useEffect(() => {
+  //   setLoadingItems(true);
+  //   const db = getFireStore();
+  //   const itemListCollection = db.collection("ItemList");
+  //   itemListCollection.get().then((querySnapshot) => {
+  //     console.log(querySnapshot);
+  //     let array = querySnapshot.docs.map((doc) => {
+  //       return {
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       };
+  //     });
+  //     setData(array);
+  //   });
+  // }, []);
+  // console.log(data);
   useEffect(() => {
     setLoadingItems(true);
     const timeout = setTimeout(() => {

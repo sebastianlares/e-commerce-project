@@ -5,21 +5,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../globalContext";
 
-function ItemDetail({ itemDetail, loading }) {
+function ItemDetail({ loading }) {
   const [alert, setAlert] = useState(false);
   const [itemAmount, setItemAmount] = useState(1);
   const [cartReady, isCartReady] = useState(false);
-  const { addItemToCart, setItemsOnCart, itemsOnCart } = useGlobalContext();
-  const { img, title, descr, price, categoryId } = itemDetail;
+  const { addItemToCart, itemsOnCart, itemDetail } = useGlobalContext();
+  const { pictureURL, title, descr, price, categoryId, stock } = itemDetail;
 
   const onAdd = (stock) => {
     if (stock === 0) {
       setAlert(true);
       return;
     }
-    const add = addItemToCart(itemDetail, stock);
-    setItemsOnCart([...itemsOnCart, add]);
-    console.log(itemsOnCart);
+    addItemToCart(itemDetail, stock);
     setItemAmount(stock);
     isCartReady(true);
   };
@@ -42,7 +40,7 @@ function ItemDetail({ itemDetail, loading }) {
         </div>
       ) : (
         <>
-          <img src={img} alt={title} />
+          <img src={pictureURL} alt={title} />
           <div className="description">
             <div className="category-links">
               <Link to="/productos">Productos </Link>
@@ -60,14 +58,17 @@ function ItemDetail({ itemDetail, loading }) {
             <p className="discount-two">
               10% de descuento pagando por transferencia bancaria ó efectivo.
             </p>
-            <ItemCount
-              initial={1}
-              alert={alert}
-              stock={4}
-              onAdd={onAdd}
-              setAlert={setAlert}
-              cartReady={cartReady}
-            />
+            <div className="countContainer">
+              <ItemCount
+                initial={1}
+                alert={alert}
+                stock={stock}
+                onAdd={onAdd}
+                setAlert={setAlert}
+                cartReady={cartReady}
+              />
+            </div>
+
             <p className="descr">{descr}</p>
           </div>
         </>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
+import { useGlobalContext } from "../../globalContext";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
-  const [itemDetail, setItemDetail] = useState({});
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const { categoryId } = useParams();
+  const { setItemDetail } = useGlobalContext();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -16,7 +17,7 @@ function ItemDetailContainer() {
   }, [id]);
 
   const getData = () => {
-    const call = fetch(".././data.json");
+    const call = fetch(".././itemData.json");
     call
       .then((res) => {
         const data = res.json();
@@ -43,7 +44,7 @@ function ItemDetailContainer() {
       >
         Estate cómodo <span>todo</span> el día
       </h3>
-      <ItemDetail itemDetail={itemDetail} loading={loading} />
+      <ItemDetail loading={loading} />
     </div>
   );
 }

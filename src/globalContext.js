@@ -6,6 +6,7 @@ const GlobalProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loadingItems, setLoadingItems] = useState(true);
   const [itemsOnCart, setItemsOnCart] = useState([]);
+  const [itemDetail, setItemDetail] = useState({});
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -15,13 +16,25 @@ const GlobalProvider = ({ children }) => {
     setIsModalOpen(false);
   };
 
-  const addItemToCart = (item, quantity) => {
-    const cartItem = { item, quantity };
-    return cartItem;
+  const addItemToCart = (item = [], quantity) => {
+    setItemsOnCart([...itemsOnCart, { item, quantity }]);
+
+    if (itemsOnCart.some((i) => i.item.id === item.id)) {
+      const newArray = itemsOnCart.filter((i) => i.item.id !== item.id);
+      newArray.push({ item, quantity });
+      setItemsOnCart(newArray);
+    }
   };
 
-  const removeItemFromCart = (item) => {
-    itemsOnCart.filter((i) => i.id !== item.id);
+  const removeItemFromCart = (id) => {
+    console.log(id);
+    const newItems = itemsOnCart.filter((item) => item.item.id !== id);
+    console.log(newItems);
+    setItemsOnCart(newItems);
+  };
+
+  const removeAllItems = () => {
+    setItemsOnCart([]);
   };
 
   return (
@@ -35,6 +48,10 @@ const GlobalProvider = ({ children }) => {
         addItemToCart,
         setItemsOnCart,
         itemsOnCart,
+        itemDetail,
+        setItemDetail,
+        removeItemFromCart,
+        removeAllItems,
       }}
     >
       {children}

@@ -1,0 +1,16 @@
+.talles {
+  display: flex;
+  align-items: baseline;
+}
+
+.talles p {
+  padding-right: 3px;
+}
+
+.talles select {
+  text-transform: uppercase;
+}
+
+.talles option {
+  text-transform: uppercase;
+}
