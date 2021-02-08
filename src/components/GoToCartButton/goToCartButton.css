@@ -4,3 +4,12 @@
   color: green;
   padding-top: 35px;
 }
+
+#orange {
+  color: #d48a4c;
+  border: 1px solid rgb(212 138 76);
+}
+
+#orange:hover {
+  border: 1px solid #d23817;
+}

@@ -3,14 +3,18 @@ import "./itemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 import { useGlobalContext } from "../../globalContext";
 
 function ItemDetail({ loading }) {
   const [alert, setAlert] = useState(false);
   const [itemAmount, setItemAmount] = useState(1);
   const [cartReady, isCartReady] = useState(false);
-  const { addItemToCart, itemsOnCart, itemDetail } = useGlobalContext();
-  const { pictureURL, title, descr, price, categoryId, stock } = itemDetail;
+  const { categoryId } = useParams();
+
+  const { addItemToCart, itemDetail } = useGlobalContext();
+  const { pictureURL, title, description, price, stock } = itemDetail;
 
   const onAdd = (stock) => {
     if (stock === 0) {
@@ -69,7 +73,7 @@ function ItemDetail({ loading }) {
               />
             </div>
 
-            <p className="descr">{descr}</p>
+            <p className="descr">{description}</p>
           </div>
         </>
       )}

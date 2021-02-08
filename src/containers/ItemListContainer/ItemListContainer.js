@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList/ItemList";
 import { getFireStore } from "../../firebase/index";
@@ -6,48 +6,33 @@ import "./itemListContainer.css";
 import { useGlobalContext } from "../../globalContext";
 
 function ItemListContainer({ greeting }) {
-  const [data, setData] = useState([]);
-  const { loadingItems, setLoadingItems } = useGlobalContext();
+  const { loadingItems, setLoadingItems, setData, data } = useGlobalContext();
   const { categoryId } = useParams();
-  // const [test, setTest] = useState();
 
-  // useEffect(() => {
-  //   setLoadingItems(true);
-  //   const db = getFireStore();
-  //   const itemListCollection = db.collection("ItemList");
-  //   itemListCollection.get().then((querySnapshot) => {
-  //     console.log(querySnapshot);
-  //     let array = querySnapshot.docs.map((doc) => {
-  //       return {
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       };
-  //     });
-  //     setData(array);
-  //   });
-  // }, []);
-  // console.log(data);
   useEffect(() => {
-    setLoadingItems(true);
-    const timeout = setTimeout(() => {
-      getData();
-    }, 1);
-    return () => clearTimeout(timeout);
+    if (data === undefined) {
+      setLoadingItems(true);
+    }
+    const db = getFireStore();
+    const itemListCollection = db.collection("ItemList");
+    itemListCollection
+      .get()
+      .then((querySnapshot) => {
+        let array = querySnapshot.docs.map((doc) => {
+          return {
+            ...doc.data(),
+            id: doc.id,
+          };
+        });
+        return array;
+      })
+      .then((array) => {
+        setLoadingItems(false);
+        if (categoryId === undefined) categoryFilter(array);
+        else setData(array);
+      });
   }, []);
 
-  const getData = () => {
-    const call = fetch(".././itemData.json");
-    call
-      .then((res) => {
-        const itemList = res.json();
-        return itemList;
-      })
-      .then((itemList) => {
-        setLoadingItems(false);
-        if (categoryId !== undefined) categoryFilter(itemList);
-        else setData(itemList);
-      });
-  };
   const categoryFilter = (arr = []) => {
     const filteredCategory = arr.filter(
       (items) => items.categoryId === categoryId

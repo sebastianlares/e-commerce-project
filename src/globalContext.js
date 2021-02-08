@@ -7,6 +7,10 @@ const GlobalProvider = ({ children }) => {
   const [loadingItems, setLoadingItems] = useState(true);
   const [itemsOnCart, setItemsOnCart] = useState([]);
   const [itemDetail, setItemDetail] = useState({});
+  const [data, setData] = useState([]);
+  const [amountGreaterThanStock, setAmountGreaterThanStock] = useState(false);
+
+  const { stock } = itemDetail;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -20,8 +24,14 @@ const GlobalProvider = ({ children }) => {
     setItemsOnCart([...itemsOnCart, { item, quantity }]);
 
     if (itemsOnCart.some((i) => i.item.id === item.id)) {
+      const itemIndex = itemsOnCart.findIndex((i) => i.item.id === item.id);
       const newArray = itemsOnCart.filter((i) => i.item.id !== item.id);
-      newArray.push({ item, quantity });
+      let amount = quantity + itemsOnCart[itemIndex].quantity;
+      if (amount > stock) amount = stock;
+      newArray.push({
+        item,
+        quantity: amount,
+      });
       setItemsOnCart(newArray);
     }
   };
@@ -52,6 +62,10 @@ const GlobalProvider = ({ children }) => {
         setItemDetail,
         removeItemFromCart,
         removeAllItems,
+        amountGreaterThanStock,
+        setAmountGreaterThanStock,
+        data,
+        setData,
       }}
     >
       {children}

@@ -1,0 +1,75 @@
+.cart-container {
+  padding-top: 170px;
+  height: 776px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 800px;
+  align-items: center;
+}
+
+.cart-container h1 {
+  color: var(--grey);
+  font-size: 40px;
+  border-bottom: 1px solid #d48a4c;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.cart-container h2 {
+  font-size: 30px;
+  padding-top: 40px;
+  font-weight: 400;
+}
+
+.cart-container-links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  align-items: center;
+}
+
+.cart-container-links a {
+  width: 250px;
+  height: 60px;
+  margin-bottom: 40px;
+}
+
+.cart-container-links span {
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+.cart-container .MuiButton-outlinedPrimary {
+  border: 1px solid rgb(212 138 76);
+  width: 250px;
+  height: 60px;
+}
+
+.cart-container .MuiButton-outlinedPrimary:hover {
+  border: 1px solid #d23817;
+}
+
+.total-price {
+  display: flex;
+  flex-direction: column;
+  padding-left: 336px;
+  font-size: 25px;
+  font-weight: 500;
+  padding-top: 20px;
+}
+
+.total-price p {
+  border-bottom: 1px solid black;
+}
+
+.total-price .MuiButton-outlinedPrimary {
+  margin-top: 20px;
+  width: 135px;
+  height: 30px;
+  align-self: flex-end;
+}
+
+.total-price .MuiButton-outlinedPrimary span {
+  font-size: 12px;
+}

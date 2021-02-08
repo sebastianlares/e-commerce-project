@@ -2,37 +2,40 @@ import React, { useState, useEffect } from "react";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { useGlobalContext } from "../../globalContext";
 import { useParams } from "react-router-dom";
+import { getFireStore } from "../../firebase";
 
 function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-  const { categoryId } = useParams();
   const { setItemDetail } = useGlobalContext();
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      getData();
-    }, 1);
-    return () => clearTimeout(timeout);
-  }, [id]);
-
-  const getData = () => {
-    const call = fetch(".././itemData.json");
-    call
-      .then((res) => {
-        const data = res.json();
-        return data;
+    setLoading(true);
+    const db = getFireStore();
+    const itemListCollection = db.collection("ItemList");
+    itemListCollection
+      .get()
+      .then((querySnapshot) => {
+        let array = querySnapshot.docs.map((doc) => {
+          return {
+            ...doc.data(),
+            id: doc.id,
+          };
+        });
+        return array;
       })
-      .then((data) => {
+      .then((array) => {
         setLoading(false);
-        filterItemDetail(data);
+        filterItemDetail(array);
       });
-  };
+  }, []);
 
   const filterItemDetail = (arr = []) => {
-    let itemSearch = arr.filter((item) => {
-      return item.id === parseInt(id);
+    let itemSearch;
+    itemSearch = arr.filter((item) => {
+      return item.id === id;
     });
+    setLoading(false);
     setItemDetail(itemSearch[0]);
   };
 

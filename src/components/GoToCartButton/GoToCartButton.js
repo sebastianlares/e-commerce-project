@@ -9,6 +9,7 @@ function GoToCartButton() {
       <p className="compra-finalizada">Tu elección fue agregada al carrito!</p>
       <Link to="/cart">
         <Button
+          id="orange"
           variant="outlined"
           color="primary"
           style={{ width: "100%", marginTop: "31px" }}

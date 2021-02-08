@@ -1,29 +1,44 @@
 import React from "react";
 import "./cart.css";
 import { useGlobalContext } from "../../globalContext";
+import { Link } from "react-router-dom";
+import {
+  RiDeleteBin6Fill,
+  RiArrowDropDownLine,
+  RiArrowDropUpLine,
+} from "react-icons/ri";
 
-function Cart() {
-  const {
-    itemsOnCart,
-    removeAllItems,
-    removeItemFromCart,
-  } = useGlobalContext();
+function Cart({ singleItem }) {
+  const { removeItemFromCart, addItemToCart } = useGlobalContext();
+  const { item, quantity } = singleItem;
+  const { price, title, id, stock } = item;
+
+  // const increaseQuantity = (item, amount) => {
+  //   if (amount >= stock) return;
+  //   const newAmount = amount + 1;
+  //   addItemToCart(item, newAmount);
+  // };
 
   return (
     <div className="cart">
-      {itemsOnCart.map((cartItem) => {
-        const { item } = cartItem;
-        const { id, title, price, quantity } = item;
-        return (
-          <div key={id}>
-            <p>{title}</p>
-            <p>{price}</p>
-            <p>{quantity}</p>
-            <button onClick={() => removeItemFromCart(id)}>delete item</button>
-          </div>
-        );
-      })}
-      <button onClick={() => removeAllItems()}>Remove All</button>
+      <Link to={`/item/${id}`}>
+        <p className="cart-title">Producto: {title}</p>
+      </Link>
+      <div className="quantity-div">
+        <p id="quantity">Cantidad: {quantity}</p>
+        <div className="quantity-button">
+          <button>
+            <RiArrowDropUpLine />
+          </button>
+          <button>
+            <RiArrowDropDownLine />
+          </button>
+        </div>
+      </div>
+      <p id="price">${price * quantity},00</p>
+      <button onClick={() => removeItemFromCart(id)}>
+        <RiDeleteBin6Fill />
+      </button>
     </div>
   );
 }

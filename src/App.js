@@ -3,10 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import ItemListContainer from "./containers/ItemListContainer/ItemListContainer";
 import NavBar from "./components/navBar/NavBar";
 import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
-import Cart from "./components/Cart/Cart";
 import Home from "./components/Home/Home";
 import { cartContext } from "./context/cartContext";
 import Footer from "./components/Footer/Footer";
+import CartContainer from "./containers/CartContainer/CartContainer";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <cartContext.Provider value={[]}>
         <NavBar />
         <Switch>
-          <Route path="/cart" component={Cart} />
+          <Route path="/cart" component={CartContainer} />
           <Route exact path="/category/:categoryId">
             <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
           </Route>

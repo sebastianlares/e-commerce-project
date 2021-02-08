@@ -9,25 +9,25 @@
   /* justify-content: space-around; */
   width: 100%;
   background-color: rgb(203 203 203);
-  height: 90px;
+  height: 80px;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  padding-left: 380px;
+  margin-left: 900px;
 }
 
 .navbar ul a {
   font-size: 1.25em;
-}
-.navbar a {
   text-transform: capitalize;
+  margin-left: 85px;
+  border: 2px solid transparent;
+}
 
+.navbar a {
   text-decoration: none;
   color: var(--grey);
-  margin-left: 130px;
-  border: 2px solid transparent;
 }
 
 .brand-name {
@@ -55,4 +55,11 @@
 
 .simpleShop:hover {
   color: rgb(0, 0, 0);
+}
+
+#cartWidget {
+  margin-left: 900px;
+  border: none;
+  left: 474px;
+  position: absolute;
 }

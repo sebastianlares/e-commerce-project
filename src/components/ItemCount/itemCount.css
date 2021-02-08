@@ -33,6 +33,16 @@ button {
   font-size: 15px;
 }
 
+#orange-color {
+  color: #d48a4c;
+  border: 1px solid rgb(212 138 76);
+}
+
+#orange-color:hover {
+  border: 1px solid #d23817;
+  background-color: rgba(63, 81, 181, 0.04);
+}
+
 .btn {
   border: none;
   cursor: pointer;
@@ -61,4 +71,16 @@ button {
   font-size: 20px;
   color: green;
   padding-top: 35px;
+}
+
+.stock-surpassed {
+  visibility: hidden;
+  position: absolute;
+  padding-left: 270px;
+}
+
+.stock-surpassed .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
 }
