@@ -6,8 +6,7 @@ import "./cartContainer.css";
 import Button from "@material-ui/core/Button";
 
 function CartContainer() {
-  const { itemsOnCart, removeAllItems } = useGlobalContext();
-  console.log(itemsOnCart);
+  const { itemsOnCart, removeAllItems, total } = useGlobalContext();
 
   return (
     <div className="cart-container">
@@ -47,11 +46,7 @@ function CartContainer() {
           </section>
           <section className="total-price">
             <p>
-              Total: $
-              {itemsOnCart.reduce((total, singleItem) => {
-                const { item } = singleItem;
-                return total + item.price * singleItem.quantity;
-              }, 0)}
+              Total: ${total()}
               ,00
             </p>
             <Button

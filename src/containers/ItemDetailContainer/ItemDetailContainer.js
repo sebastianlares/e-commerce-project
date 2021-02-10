@@ -13,22 +13,20 @@ function ItemDetailContainer() {
     setLoading(true);
     const db = getFireStore();
     const itemListCollection = db.collection("ItemList");
-    itemListCollection
+    const itemDb = itemListCollection.doc(id);
+    itemDb
       .get()
-      .then((querySnapshot) => {
-        let array = querySnapshot.docs.map((doc) => {
-          return {
-            ...doc.data(),
-            id: doc.id,
-          };
-        });
-        return array;
-      })
-      .then((array) => {
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log("archivo no encontrado");
+        }
         setLoading(false);
-        filterItemDetail(array);
+        setItemDetail({ ...doc.data(), id: doc.id });
+      })
+      .catch((e) => {
+        console.log(e);
       });
-  }, []);
+  }, [id]);
 
   const filterItemDetail = (arr = []) => {
     let itemSearch;

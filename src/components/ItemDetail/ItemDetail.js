@@ -11,10 +11,16 @@ function ItemDetail({ loading }) {
   const [alert, setAlert] = useState(false);
   const [itemAmount, setItemAmount] = useState(1);
   const [cartReady, isCartReady] = useState(false);
-  const { categoryId } = useParams();
 
   const { addItemToCart, itemDetail } = useGlobalContext();
-  const { pictureURL, title, description, price, stock } = itemDetail;
+  const {
+    pictureURL,
+    title,
+    description,
+    price,
+    stock,
+    categoryId,
+  } = itemDetail;
 
   const onAdd = (stock) => {
     if (stock === 0) {
@@ -49,13 +55,20 @@ function ItemDetail({ loading }) {
             <div className="category-links">
               <Link to="/productos">Productos </Link>
               <span>/ </span>
-              <Link to={`/category/${categoryId}`}>{categoryId} </Link>
+              <Link
+                to={`/category/${categoryId}`}
+                style={{ textTransform: "capitalize" }}
+              >
+                {categoryId}{" "}
+              </Link>
               <span>/ </span> {title}
             </div>
             <h3>{title}</h3>
             <div className="discount">
-              <p>${price},00 </p>
-              <p>${price - price * 0.2},00</p>
+              <p>${new Intl.NumberFormat("de-DE").format(price)},00 </p>
+              <p>
+                ${new Intl.NumberFormat("de-DE").format(price - price * 0.2)},00
+              </p>
               <p>20% OFF</p>
             </div>
 

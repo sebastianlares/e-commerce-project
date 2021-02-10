@@ -47,6 +47,23 @@ const GlobalProvider = ({ children }) => {
     setItemsOnCart([]);
   };
 
+  const total = () => {
+    return itemsOnCart.reduce((total, singleItem) => {
+      const { item } = singleItem;
+      return total + item.price * singleItem.quantity;
+    }, 0);
+  };
+
+  const items = itemsOnCart.map((singleItem) => {
+    const { item } = singleItem;
+    return {
+      title: item.title,
+      price: item.price,
+      id: item.id,
+    };
+  });
+  const products = { items, total };
+
   return (
     <AppContext.Provider
       value={{
@@ -66,6 +83,8 @@ const GlobalProvider = ({ children }) => {
         setAmountGreaterThanStock,
         data,
         setData,
+        products,
+        total,
       }}
     >
       {children}

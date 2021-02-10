@@ -1,5 +1,7 @@
 .item-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  width: 70%;
+  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
 }

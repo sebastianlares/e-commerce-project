@@ -9,7 +9,7 @@ import {
 } from "react-icons/ri";
 
 function Cart({ singleItem }) {
-  const { removeItemFromCart, addItemToCart } = useGlobalContext();
+  const { removeItemFromCart, addItemToCart, products } = useGlobalContext();
   const { item, quantity } = singleItem;
   const { price, title, id, stock } = item;
 
@@ -18,6 +18,7 @@ function Cart({ singleItem }) {
   //   const newAmount = amount + 1;
   //   addItemToCart(item, newAmount);
   // };
+  console.log(products);
 
   return (
     <div className="cart">
@@ -35,7 +36,9 @@ function Cart({ singleItem }) {
           </button>
         </div>
       </div>
-      <p id="price">${price * quantity},00</p>
+      <p id="price">
+        ${new Intl.NumberFormat("de-DE").format(price * quantity)},00
+      </p>
       <button onClick={() => removeItemFromCart(id)}>
         <RiDeleteBin6Fill />
       </button>

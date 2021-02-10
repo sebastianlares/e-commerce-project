@@ -13,7 +13,7 @@ function Item({ item }) {
       <Link to={`/item/${id}`}>
         <p className="item-title">{title}</p>
       </Link>
-      <h4>${price},00 </h4>
+      <h4>${new Intl.NumberFormat("de-DE").format(price)},00 </h4>
     </div>
   );
 }

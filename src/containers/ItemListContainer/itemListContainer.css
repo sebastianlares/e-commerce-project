@@ -15,9 +15,16 @@
 .container-greeting {
   font-size: 40px;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 45px;
   color: var(--grey);
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.item-list-container p:last-of-type {
+  font-size: 30px;
+  text-align: center;
+  color: var(--grey);
+  letter-spacing: 1px;
 }
 
 .itemList {
@@ -67,6 +74,13 @@ a:hover {
   border-bottom: none;
 }
 
+.MuiButton-outlinedPrimary {
+  border: 1px solid rgb(212 138 76);
+}
+
+.MuiButton-outlinedPrimary:hover {
+  border: 1px solid #d75029;
+}
 .sk-chase-dot:nth-child(1) {
   animation-delay: -1.1s;
 }
