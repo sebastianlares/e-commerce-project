@@ -27,8 +27,8 @@
 }
 
 .home-section {
-  background: url(/src/images/background-mujer-1.jpg) no-repeat center
-    center/cover;
+  background-image: url("../../images/background-mujer-1.jpg");
+  background-repeat: no-repeat;
   background-size: 570px;
   height: 700px;
   margin-top: 80px;
@@ -46,13 +46,14 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
-  padding-left: 200px;
+  padding-top: 60px;
+  padding-left: 230px;
 }
 
 .home-section h2 {
   color: var(--grey);
   font-size: 70px;
+  font-weight: 300;
   text-align: center;
 }
 
@@ -70,6 +71,7 @@ span {
   padding-top: 10px;
   text-align: center;
   line-height: 1.9;
+  font-weight: 300;
 }
 
 .home-section2 {
@@ -82,4 +84,63 @@ span {
   display: flex;
   justify-content: flex-end;
   margin: auto;
+}
+
+.section-background-two {
+  background-image: url("../../images/photo5064747713618356472.jpg");
+  background-repeat: no-repeat;
+  width: 80%;
+  margin: auto;
+  height: 700px;
+}
+
+.section-background-two div {
+  width: 300px;
+  display: flex;
+  padding-top: 50px;
+  padding-left: 50px;
+  flex-direction: column;
+}
+
+.section-background-two h2 {
+  font-size: 60px;
+  color: white;
+  font-weight: 100;
+}
+
+.no-gender {
+  display: flex;
+  margin: auto;
+  width: 80%;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.no-gender h2 {
+  font-size: 75px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  width: 100%;
+  text-align: center;
+  font-weight: 100;
+}
+
+.home-container button {
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  border: none;
+}
+
+.home-container a {
+  width: 180px;
+  height: 60px;
+}
+
+.home-container button:hover span {
+  color: white;
+}
+
+.home-container button:hover {
+  background: rgb(158, 156, 156);
 }

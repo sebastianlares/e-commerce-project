@@ -46,11 +46,6 @@
   margin: auto;
 }
 
-.item-detail img {
-  width: 450px;
-  margin-right: 50px;
-}
-
 .item-detail h3 {
   color: var(--grey);
   font-weight: 300;
@@ -59,6 +54,11 @@
   line-height: 0.8em;
 
   margin-bottom: 30px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
 }
 
 .discount {
@@ -98,7 +98,7 @@
 
 .descr {
   color: var(--grey);
-  padding-top: 20px;
+  padding-top: 10px;
   line-height: 1.8;
   font-size: 18px;
 }
@@ -107,6 +107,90 @@
   text-align: center;
   font-size: 40px;
   line-height: 559px;
+}
+
+/* .item-detail img {
+  width: 450px;
+  margin-right: 50px;
+} */
+
+.color {
+  display: flex;
+  align-items: center;
+  width: 290px;
+  justify-content: right;
+}
+
+.color p {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.color-pick {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid rgb(119, 117, 117);
+  cursor: pointer;
+}
+
+#size {
+  text-transform: uppercase;
+}
+
+.size #size {
+  padding-bottom: 2px;
+  margin-right: 9px;
+}
+
+#size option {
+  text-transform: uppercase;
+}
+
+.countContainer {
+  width: 450px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-detail .alice-carousel {
+  width: 400px;
+  margin: 0;
+}
+
+.item-detail .alice-carousel_wrapper {
+  height: 600px;
+  width: 400px;
+}
+
+.item-detail .alice-carousel img {
+  width: 400px;
+  height: 600px;
+  cursor: initial;
+}
+
+.item-detail .alice-carousel__prev-btn {
+  right: 350px;
+  position: absolute;
+  top: 224px;
+  width: auto;
+}
+
+.item-detail .alice-carousel__prev-btn-item {
+  font-size: 35px;
+}
+
+.item-detail .alice-carousel__next-btn {
+  left: 350px;
+  position: absolute;
+  top: 224px;
+  width: auto;
+}
+
+.item-detail .alice-carousel__next-btn-item {
+  font-size: 35px;
 }
 
 .sk-chase {

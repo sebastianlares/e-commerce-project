@@ -1,0 +1,25 @@
+.subMenu {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  width: auto;
+  margin-left: 85px;
+  align-items: baseline;
+  background: inherit;
+  width: 85px;
+  height: 130px;
+  padding: 3px 0px 3px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.subMenu .link {
+  margin-top: 0px;
+  margin-left: 0px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.show {
+  display: flex;
+}

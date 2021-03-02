@@ -1,0 +1,52 @@
+.order-detail {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding-bottom: 20px;
+}
+
+.delete-order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-order-btn svg {
+  cursor: pointer;
+}
+
+.order-detail h4 {
+  margin-bottom: 3px;
+  font-size: 18px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.info p {
+  padding-bottom: 5px;
+}
+
+.order-detail p {
+  padding-bottom: 5px;
+}
+
+.order-section {
+  display: flex;
+}
+
+.order-section p {
+  padding-right: 5px;
+}
+
+.order-section li {
+  width: 250px;
+}
+
+.order-section p:last-child {
+  padding-left: 20px;
+}

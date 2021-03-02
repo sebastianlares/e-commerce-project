@@ -1,10 +1,10 @@
 .cart-container {
-  padding-top: 170px;
+  padding-top: 140px;
   height: 776px;
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 800px;
+  width: 830px;
   align-items: center;
 }
 
@@ -18,8 +18,9 @@
 
 .cart-container h2 {
   font-size: 30px;
-  padding-top: 40px;
+  padding-top: 20px;
   font-weight: 400;
+  text-align: center;
 }
 
 .cart-container-links {
@@ -32,7 +33,6 @@
 .cart-container-links a {
   width: 250px;
   height: 60px;
-  margin-bottom: 40px;
 }
 
 .cart-container-links span {
@@ -52,24 +52,68 @@
 
 .total-price {
   display: flex;
-  flex-direction: column;
-  padding-left: 336px;
   font-size: 25px;
   font-weight: 500;
   padding-top: 20px;
+  align-self: flex-end;
 }
 
 .total-price p {
   border-bottom: 1px solid black;
+  margin-left: 18px;
+  font-size: 24px;
 }
 
-.total-price .MuiButton-outlinedPrimary {
-  margin-top: 20px;
-  width: 135px;
-  height: 30px;
+.total-price svg {
+  margin-left: 36px;
+  align-self: center;
+  cursor: pointer;
+  width: 26px;
+}
+
+.final-buy {
+  display: flex;
   align-self: flex-end;
+  margin-right: 69px;
 }
 
-.total-price .MuiButton-outlinedPrimary span {
-  font-size: 12px;
+.buy-container p {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 17px;
+}
+
+.buy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buy-container button {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.buy-container a {
+  width: 250px;
+}
+
+.cart-container .sk-listContainer {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: sk-chase 2.5s infinite linear both;
+  background-color: rgb(255, 253, 253);
+  display: flex;
+  align-self: center;
+  top: 50%;
+  margin: auto;
+  padding-top: 40px;
+  margin-top: -220px;
+}
+
+.total-items-detail {
+  width: 830px;
+  display: flex;
+  flex-direction: column;
 }

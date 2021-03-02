@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./item.css";
+import Carousel from "../Carousel/Carousel";
+import { useGlobalContext } from "../../globalContext";
 
 function Item({ item }) {
-  const { price, title, pictureURL, id } = item;
+  const { price, title, id, color } = item;
+  const { loadingItems } = useGlobalContext();
 
   return (
     <div className="item">
-      <Link to={`/item/${id}`}>
-        <img src={pictureURL} alt={title} />
-      </Link>
+      {!loadingItems && (
+        <Carousel
+          images={Object.values(color)[0].pictures}
+          id={id}
+          setLink={true}
+        />
+      )}
       <Link to={`/item/${id}`}>
         <p className="item-title">{title}</p>
       </Link>

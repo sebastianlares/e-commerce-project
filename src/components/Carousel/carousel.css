@@ -1,0 +1,36 @@
+.alice-carousel img {
+  width: 300px;
+  height: 450px;
+  cursor: pointer;
+}
+
+.alice-carousel__stage {
+  width: 300px;
+  height: 450px;
+}
+.alice-carousel__stage-item {
+  width: 300px;
+  height: 450px;
+}
+
+.alice-carousel__dots {
+  margin: -32px 3px 5px;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  position: inherit;
+}
+
+.alice-carousel__prev-btn {
+  right: 260px;
+  position: absolute;
+  top: 185px;
+  width: 100px;
+}
+
+.alice-carousel__next-btn {
+  left: 262px;
+  position: absolute;
+  top: 185px;
+  width: 100px;
+}

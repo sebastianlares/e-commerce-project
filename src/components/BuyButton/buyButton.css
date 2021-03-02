@@ -1,0 +1,29 @@
+#buyButton {
+  margin-top: 31px;
+  height: 30px;
+  margin-left: 15px;
+  width: 155px;
+  border: 1px solid rgb(212 138 76);
+}
+
+.cart-container #buyButton span:first-child {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+#buyButton:hover {
+  border: 1px solid #d23817;
+}
+
+#disabledButton {
+  margin-top: 31px;
+  height: 30px;
+  margin-left: 15px;
+  width: 155px;
+  border: 1px solid grey;
+}
+
+.cart-container #disabledButton span:first-child {
+  font-size: 12px;
+  font-weight: 900;
+}

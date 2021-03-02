@@ -9,15 +9,21 @@ import Button from "@material-ui/core/Button";
 function ItemListContainer({ greeting }) {
   const { loadingItems, setLoadingItems, setData, data } = useGlobalContext();
   const { categoryId } = useParams();
+  console.log(categoryId);
 
   useEffect(() => {
-    setData([]);
     setLoadingItems(true);
-
     const db = getFireStore();
     let itemListCollection = [];
-    if (categoryId === undefined) {
-      itemListCollection = db.collection("ItemList").orderBy("title").limit(6);
+    if (categoryId === "topVentas") {
+      itemListCollection = db
+        .collection("ItemList")
+        .where("topSells", "==", true);
+    } else if (categoryId === undefined) {
+      itemListCollection = db
+        .collection("ItemList")
+        .orderBy("title")
+        .limit(6);
     } else {
       itemListCollection = db
         .collection("ItemList")
@@ -41,14 +47,6 @@ function ItemListContainer({ greeting }) {
       });
   }, [categoryId]);
 
-  // console.log(categoryId);
-  // const categoryFilter = (arr = []) => {
-  //   const filteredCategory = arr.filter(
-  //     (items) => items.categoryId === categoryId
-  //   );
-  //   setData(filteredCategory);
-  // };
-
   const loadMoreItems = () => {
     const db = getFireStore();
     const itemListCollection = db.collection("ItemList").orderBy("title");
@@ -61,6 +59,7 @@ function ItemListContainer({ greeting }) {
             id: doc.id,
           };
         });
+        console.log(array);
         return array;
       })
       .then((array) => {
@@ -71,7 +70,7 @@ function ItemListContainer({ greeting }) {
   return (
     <>
       <div className="item-list-container">
-        <p className="container-greeting">{greeting}</p>
+        <h2 className="container-greeting">{greeting}</h2>
         {loadingItems ? (
           <div className="sk-listContainer">
             <div className="sk-chase-dot"></div>
@@ -84,8 +83,8 @@ function ItemListContainer({ greeting }) {
         ) : (
           <>
             <p>COLECCIÓN 2020</p>
-            <ItemList data={data} />
-            {data.length === 6 && (
+            <ItemList data={data} categoryId={categoryId} />
+            {data.length === 6 && categoryId !== "topVentas" && (
               <Button
                 onClick={loadMoreItems}
                 className="more-items"

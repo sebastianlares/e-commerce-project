@@ -6,6 +6,7 @@ import { getFireStore } from "../../firebase";
 
 function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
+
   const { id } = useParams();
   const { setItemDetail } = useGlobalContext();
 
@@ -26,15 +27,24 @@ function ItemDetailContainer() {
       .catch((e) => {
         console.log(e);
       });
-  }, [id]);
+  }, [id, setItemDetail]);
 
-  const filterItemDetail = (arr = []) => {
-    let itemSearch;
-    itemSearch = arr.filter((item) => {
-      return item.id === id;
-    });
-    setLoading(false);
-    setItemDetail(itemSearch[0]);
+  const handleColor = (color) => {
+    if (color === "black") {
+      return "black";
+    } else if (color === "white") {
+      return "white";
+    } else if (color === "toasted") {
+      return "#d39c4d";
+    } else if (color === "aero") {
+      return "#97bfe9";
+    } else if (color === "grey") {
+      return "#c0bfbf";
+    } else if (color === "cranberry") {
+      return "#c41d33d9";
+    } else if (color === "light blue") {
+      return "#5c9cd5";
+    }
   };
 
   return (
@@ -45,7 +55,7 @@ function ItemDetailContainer() {
       >
         Estate cómodo <span>todo</span> el día
       </h3>
-      <ItemDetail loading={loading} />
+      <ItemDetail loading={loading} handleColor={handleColor} />
     </div>
   );
 }

@@ -1,0 +1,70 @@
+.showInfo {
+  border: 1px solid red;
+  border-radius: 6px;
+  width: 416px;
+  height: auto;
+  padding: 5px;
+}
+
+.showInfo p {
+  padding-bottom: 2px;
+  text-align: center;
+}
+
+#info-alert {
+  margin-left: 5px;
+  margin-top: 37px;
+  color: red;
+  cursor: pointer;
+}
+#log-in {
+  border: 1px solid red;
+  padding: 0;
+}
+
+#log-in span {
+  font-size: 10px;
+}
+
+#number {
+  margin: auto;
+  display: flex;
+  border: 1px solid red;
+  padding: 0;
+}
+
+#number span {
+  font-size: 10px;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  top: -2px;
+  left: 129px;
+}
+
+.check-in svg {
+  cursor: pointer;
+}
+
+.check svg {
+  cursor: pointer;
+}
+
+.check-insvg:hover {
+  color: green;
+}
+
+.check svg:hover {
+  color: green;
+}
+
+input {
+  width: 124px;
+  height: 20px;
+  border: 1px solid red;
+  border-radius: 7px;
+  display: flex;
+}

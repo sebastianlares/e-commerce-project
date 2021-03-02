@@ -4,18 +4,21 @@
 
 .navbar {
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
+  justify-content: space-between;
   /* justify-content: space-around; */
   width: 100%;
   background-color: rgb(203 203 203);
   height: 80px;
+  transition: 0.2s all ease-in;
+  z-index: 1;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  margin-left: 900px;
+  align-items: center;
 }
 
 .navbar ul a {
@@ -28,6 +31,10 @@
 .navbar a {
   text-decoration: none;
   color: var(--grey);
+}
+
+.navbar:hover {
+  opacity: 1;
 }
 
 .brand-name {
@@ -46,10 +53,14 @@
 .simpleShop {
   margin-left: 150px;
   color: rgb(70 68 68);
-  font-size: 2em;
-  padding-left: 100px;
+
+  font-size: 35px;
+
+  padding-left: 50px;
   padding-right: 20px;
   cursor: pointer;
+  font-weight: 100;
+  padding-bottom: 6px;
   transition: all 0.5s ease;
 }
 
@@ -57,9 +68,29 @@
   color: rgb(0, 0, 0);
 }
 
+.user-section {
+  display: flex;
+  align-items: center;
+  width: 410px;
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
 #cartWidget {
-  margin-left: 900px;
   border: none;
-  left: 474px;
-  position: absolute;
+  padding-right: 24px;
+  padding-bottom: 5px;
+}
+
+#profile-link {
+  border: 1px solid transparent;
+}
+
+#profile-link .user-profile-link {
+  width: 35px;
+  border-radius: 50%;
+}
+
+.active {
+  opacity: 0.5;
 }

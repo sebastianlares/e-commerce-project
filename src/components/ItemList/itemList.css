@@ -1,7 +1,30 @@
 .item-list {
   display: grid;
-  width: 70%;
-  margin: auto;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
+  margin: auto;
+  grid-gap: 45px;
+}
+
+.list-links {
+  display: flex;
+  margin-left: 117px;
+  margin-top: 5px;
+}
+
+.list-links a:first-of-type {
+  color: grey;
+  padding-right: 3px;
+  font-size: 17px;
+}
+
+.list-links a:first-of-type:hover {
+  color: black;
+}
+
+.list-links a:last-of-type {
+  text-transform: capitalize;
+  color: black;
+  padding-left: 3px;
+  font-size: 17px;
 }

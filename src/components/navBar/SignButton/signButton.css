@@ -1,0 +1,17 @@
+.signButton {
+  padding-left: 20px;
+}
+
+.signButton button {
+  color: #d48a4c;
+  border: 1px solid rgb(212 138 76);
+  height: 24px;
+}
+
+.signButton button:hover {
+  border: 1px solid #d23817;
+}
+
+.signButton span {
+  font-size: 12px;
+}

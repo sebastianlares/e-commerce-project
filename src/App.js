@@ -4,28 +4,32 @@ import ItemListContainer from "./containers/ItemListContainer/ItemListContainer"
 import NavBar from "./components/navBar/NavBar";
 import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
 import Home from "./components/Home/Home";
-import { cartContext } from "./context/cartContext";
 import Footer from "./components/Footer/Footer";
+import UserProfileContainer from "../src/containers/UserProfileContainer/UserProfileContainer";
 import CartContainer from "./containers/CartContainer/CartContainer";
+import { useGlobalContext } from "./globalContext";
+import React from "react";
 
 function App() {
+  const { handleSubmenu } = useGlobalContext();
   return (
-    <div className="App">
-      <cartContext.Provider value={[]}>
-        <NavBar />
-        <Switch>
-          <Route path="/cart" component={CartContainer} />
-          <Route exact path="/category/:categoryId">
-            <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
-          </Route>
-          <Route exact path="/item/:id" component={ItemDetailContainer} />
-          <Route path="/productos">
-            <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
-          </Route>
-          <Route path="/" component={Home} />
-        </Switch>
-        <Footer />
-      </cartContext.Provider>
+    <div className="App" onMouseOver={handleSubmenu}>
+      <NavBar />
+      <Switch>
+        <Route path="/cart" component={CartContainer} />
+        <Route path="/category/:categoryId">
+          <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
+        </Route>
+        <Route path="/userProfile" component={UserProfileContainer} />
+
+        <Route exact path="/item/:id" component={ItemDetailContainer} />
+        <Route path="/productos">
+          <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
+        </Route>
+
+        <Route path="/" component={Home} />
+      </Switch>
+      <Footer />
     </div>
   );
 }

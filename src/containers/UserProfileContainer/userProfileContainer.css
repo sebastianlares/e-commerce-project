@@ -1,0 +1,10 @@
+.user-container {
+  padding-top: 100px;
+  height: fit-content;
+  min-height: 815px;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 17px;
+}

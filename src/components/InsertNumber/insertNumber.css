@@ -1,0 +1,18 @@
+.check-in {
+  display: flex;
+  position: relative;
+  width: fit-content;
+  top: -27px;
+  left: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-in input {
+  width: 136px;
+  height: 23px;
+  border: 1px solid black;
+  border-radius: 7px;
+  display: flex;
+}

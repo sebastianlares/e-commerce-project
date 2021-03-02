@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./itemCount.css";
 import Button from "@material-ui/core/Button";
 import { RiAddLine, RiSubtractLine } from "react-icons/ri";
-import { useGlobalContext } from "../../globalContext";
 import GoToCartButton from "../GoToCartButton/GoToCartButton";
 
 function ItemCount({ stock, initial, onAdd, alert, setAlert, cartReady }) {
@@ -38,42 +37,34 @@ function ItemCount({ stock, initial, onAdd, alert, setAlert, cartReady }) {
 
   return (
     <>
-      {cartReady ? (
+      <div className={`container ${stock === 0 && "disabled"}`}>
         <>
-          <GoToCartButton />
-        </>
-      ) : (
-        <div className={`container ${stock === 0 && "disabled"}`}>
-          <>
-            <div className="cantidad">
-              {/* <Size /> */}
-              <p>Cantidad</p>
-              <p>Stock: {stock} u</p>
+          <div className="stock-container">
+            <div className={`count-container ${alert && "error"}`}>
+              <button className="btn" onClick={substractToCount}>
+                <RiSubtractLine />
+              </button>
+              <p className="display-count">
+                {stock === 0 ? <p>Producto fuera de stock</p> : inStock}
+              </p>
+              <button className="btn" onClick={addToCount}>
+                <RiAddLine />
+              </button>
             </div>
-            <div className="stock-container">
-              <div className={`count-container ${alert && "error"}`}>
-                <button className="btn" onClick={substractToCount}>
-                  <RiSubtractLine />
-                </button>
-                <p className="display-count">{stock === 0 ? stock : inStock}</p>
-                <button className="btn" onClick={addToCount}>
-                  <RiAddLine />
-                </button>
-              </div>
-            </div>
+          </div>
 
-            <Button
-              id="orange-color"
-              variant="outlined"
-              color="#d48a4c"
-              style={{ width: "100%" }}
-              onClick={() => onAdd(inStock)}
-            >
-              Agregar al Carrito
-            </Button>
-          </>
-        </div>
-      )}
+          <Button
+            id="orange-color"
+            variant="outlined"
+            color="#d48a4c"
+            style={{ width: "100%" }}
+            onClick={() => onAdd(inStock)}
+          >
+            Agregar al Carrito
+          </Button>
+          {cartReady && <GoToCartButton />}
+        </>
+      </div>
     </>
   );
 }

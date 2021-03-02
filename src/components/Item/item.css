@@ -5,15 +5,14 @@
 .item {
   width: 300px;
   height: 559px;
-  padding-top: 30px;
   display: flex;
   flex-direction: column;
   justify-self: center;
 }
 
 .item img {
-  width: 300px;
-  border-radius: 3px;
+  /* width: 300px; */
+  /* border-radius: 3px; */
   transition: box-shadow 0.3s;
 }
 
@@ -31,14 +30,15 @@
 }
 
 .item h4 {
+  font-weight: 400;
   font-size: 22px;
   text-align: center;
   color: var(--grey);
 }
 
-.item:hover img {
+/* .item:hover img {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .item:hover .item-title {
   color: rgb(194, 80, 72);

@@ -1,3 +1,5 @@
+import React from "react";
+
 export const data = [
   {
     question: "Cómo hago para comprar?",

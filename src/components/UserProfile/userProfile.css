@@ -1,0 +1,67 @@
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.user-profile .user-info {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.user-p p {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.user-info .number {
+  display: flex;
+  align-items: baseline;
+}
+
+.number p:last-of-type {
+  padding-left: 3px;
+}
+
+.user-p .number p:last-of-type {
+  font-size: 18px;
+}
+
+.user-info .number svg {
+  align-self: center;
+  width: 13px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.user-info .user-p {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding-bottom: 40px;
+}
+
+.user-profile .sk-listContainer {
+  margin-top: 70px;
+}
+
+.number-edit {
+  height: 30px;
+  width: 250px;
+  position: relative;
+}
+
+.orders {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
