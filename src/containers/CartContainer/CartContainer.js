@@ -93,7 +93,6 @@ function CartContainer() {
         .then((res) => console.log(res));
     });
   };
-  console.log(itemsOnCart);
 
   return (
     <div className="cart-container">

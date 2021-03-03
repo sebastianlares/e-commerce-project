@@ -87,9 +87,13 @@ const GlobalProvider = ({ children }) => {
   };
 
   const removeItemFromCart = (id, color) => {
-    const itemIndex = itemsOnCart.findIndex(
-      (item) => item.item.id === id && item.item.color[0] === color
-    );
+    const itemIndex = itemsOnCart.findIndex((item) => {
+      return (
+        item.item.id === id &&
+        item.item.color[0] === color[0] &&
+        item.item.color[1] === color[1]
+      );
+    });
     const removedItem = itemsOnCart.splice(itemIndex, 1);
     const newArray = itemsOnCart.filter((i) => i !== removedItem);
     setItemsOnCart(newArray);

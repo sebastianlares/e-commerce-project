@@ -82,7 +82,6 @@ function Footer() {
           <>
             {data.map((item, index) => {
               const { question, answer, id } = item;
-              console.log(id);
               return (
                 <>
                   <p key={id} onClick={openModal}>
