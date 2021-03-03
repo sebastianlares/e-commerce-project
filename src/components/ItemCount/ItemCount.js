@@ -56,7 +56,6 @@ function ItemCount({ stock, initial, onAdd, alert, setAlert, cartReady }) {
           <Button
             id="orange-color"
             variant="outlined"
-            color="#d48a4c"
             style={{ width: "100%" }}
             onClick={() => onAdd(inStock)}
           >

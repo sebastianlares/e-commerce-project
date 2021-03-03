@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../globalContext";
 import Carousel from "../Carousel/Carousel";
-import { colors } from "@material-ui/core";
 
 function ItemDetail({ loading, handleColor }) {
   const [alert, setAlert] = useState(false);
@@ -18,7 +17,7 @@ function ItemDetail({ loading, handleColor }) {
   const [cartReady, isCartReady] = useState(false);
   const [sizeAlert, setSizeAlert] = useState(false);
 
-  const { addItemToCart, itemDetail, itemsOnCart } = useGlobalContext();
+  const { addItemToCart, itemDetail } = useGlobalContext();
   const { title, description, price, categoryId, color } = itemDetail;
 
   useEffect(() => {
@@ -100,7 +99,7 @@ function ItemDetail({ loading, handleColor }) {
               >
                 {categoryId}
               </Link>
-              <span>/ </span> {title}
+              <span> / </span> {title}
             </div>
             <h3>{title}</h3>
             <div className="discount">
@@ -117,9 +116,10 @@ function ItemDetail({ loading, handleColor }) {
             <div className="color">
               <p>Color</p>
               {color &&
-                Object.entries(color).map((item) => {
+                Object.entries(color).map((item, index) => {
                   return (
                     <div
+                      key={index}
                       className={"color-pick"}
                       value={item[0]}
                       style={{ background: handleColor(item[0]) }}
@@ -139,8 +139,12 @@ function ItemDetail({ loading, handleColor }) {
                       }`,
                     }}
                   >
-                    {Object.keys(colorSize.stock).map((z) => {
-                      return <option value={z}>{z}</option>;
+                    {Object.keys(colorSize.stock).map((z, index) => {
+                      return (
+                        <option key={index} value={z}>
+                          {z}
+                        </option>
+                      );
                     })}
                   </select>
                 </div>

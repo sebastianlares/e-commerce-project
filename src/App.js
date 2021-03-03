@@ -9,6 +9,8 @@ import UserProfileContainer from "../src/containers/UserProfileContainer/UserPro
 import CartContainer from "./containers/CartContainer/CartContainer";
 import { useGlobalContext } from "./globalContext";
 import React from "react";
+import AboutUs from "./components/AboutUs/AboutUs";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   const { handleSubmenu } = useGlobalContext();
@@ -26,6 +28,8 @@ function App() {
         <Route path="/productos">
           <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
         </Route>
+        <Route path="/nosotros" component={AboutUs} />
+        <Route path="/contacto" component={Contact} />
 
         <Route path="/" component={Home} />
       </Switch>

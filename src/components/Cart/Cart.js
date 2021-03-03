@@ -2,11 +2,7 @@ import React from "react";
 import "./cart.css";
 import { useGlobalContext } from "../../globalContext";
 import { Link } from "react-router-dom";
-import {
-  RiDeleteBin6Fill,
-  RiArrowDropDownLine,
-  RiArrowDropUpLine,
-} from "react-icons/ri";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 function Cart({ singleItem }) {
   const { removeItemFromCart } = useGlobalContext();

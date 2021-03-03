@@ -9,7 +9,7 @@ function ItemList({ data, categoryId }) {
     <>
       <div
         className="list-links"
-        style={{ marginLeft: `${data.length === 1 ? "462px" : "117px"}` }}
+        style={{ marginLeft: `${data.length === 1 ? "466px" : "123px"}` }}
       >
         <Link to={"/productos"}>Productos </Link>
         <span> / </span>

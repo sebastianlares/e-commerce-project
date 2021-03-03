@@ -1,0 +1,22 @@
+.about-us {
+  padding-top: 80px;
+  min-height: 815px;
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  align-items: center;
+  margin: auto;
+}
+
+.about-us h2 {
+  padding-top: 60px;
+  text-align: center;
+  font-size: 35px;
+  padding-bottom: 45px;
+  font-weight: 100;
+}
+
+.faq-info {
+  width: 600px;
+  display: grid;
+}

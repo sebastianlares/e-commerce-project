@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobalContext } from "../../globalContext";
 import "./userProfile.css";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";

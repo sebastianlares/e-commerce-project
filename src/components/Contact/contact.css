@@ -1,0 +1,65 @@
+.contact-form {
+  padding-top: 80px;
+  min-height: 815px;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-form form {
+  position: relative;
+}
+.contact-form h2 {
+  padding-bottom: 30px;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 300;
+}
+.contact-form input {
+  display: flex;
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-top: 7px;
+}
+.contact-form #area {
+  height: 80px;
+}
+
+.contact-form input::placeholder {
+  padding-left: 5px;
+}
+
+.contact-form #area::placeholder {
+  transform: translateY(-20px);
+}
+
+.contact-form button {
+  width: 300px;
+  height: 30px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+  transition: 0.3s all ease-in-out;
+}
+
+.contact-form button:hover {
+  color: white;
+  background: black;
+}
+
+.contact-form .sk-listContainer {
+  width: 20px;
+  height: 20px;
+  animation: sk-chase 2.5s infinite linear both;
+  background-color: rgb(255, 253, 253);
+  display: flex;
+  align-self: center;
+  top: 50%;
+  margin: auto;
+  padding-top: 35px;
+  margin-top: -260px;
+  margin-right: 840px;
+}

@@ -34,7 +34,6 @@ const GlobalProvider = ({ children }) => {
   const [phoneNumber, setPhoneNumber] = useState(getLocalStorage("phone"));
   const [orderId, setOrderId] = useState(getLocalStorage("orderId"));
   const [showEdit, setShowEdit] = useState(false);
-  console.log(itemsOnCart);
 
   useEffect(() => {
     localStorage.setItem("phone", JSON.stringify(phoneNumber));
@@ -93,7 +92,6 @@ const GlobalProvider = ({ children }) => {
     );
     const removedItem = itemsOnCart.splice(itemIndex, 1);
     const newArray = itemsOnCart.filter((i) => i !== removedItem);
-    // console.log(newArray);
     setItemsOnCart(newArray);
   };
 

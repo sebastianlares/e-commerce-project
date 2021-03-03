@@ -2,6 +2,7 @@ import React from "react";
 
 export const data = [
   {
+    id: 4,
     question: "Cómo hago para comprar?",
     answer: (
       <p>
@@ -13,6 +14,7 @@ export const data = [
     ),
   },
   {
+    id: 5,
     question: "Cómo hago si necesito una devolución?",
     answer: (
       <p>
@@ -23,6 +25,7 @@ export const data = [
     ),
   },
   {
+    id: 6,
     question: "Aceptan diferentes métodos de pago?",
     answer: (
       <p>

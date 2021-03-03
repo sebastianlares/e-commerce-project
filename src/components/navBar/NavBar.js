@@ -8,14 +8,20 @@ import SubMenu from "./SubMenu/SubMenu";
 
 function NavBar() {
   const [navbarBackground, setNavbarBackground] = useState(false);
+  const [userPhoto, setUserPhoto] = useState();
   const { itemsOnCart, currentUser } = useGlobalContext();
-  const { photoURL } = currentUser;
   const links = [
     { name: "home", id: 1 },
     { name: "productos", id: 2 },
     { name: "nosotros", id: 3 },
     { name: "contacto", id: 4 },
   ];
+
+  useEffect(() => {
+    if (currentUser !== null) {
+      setUserPhoto(currentUser.photoURL);
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     const changeBackground = () => {
@@ -56,9 +62,15 @@ function NavBar() {
             <CartWidget />
           </Link>
         )}
-        <Link to="/userProfile" id="profile-link">
-          <img src={photoURL} className="user-profile-link" />
-        </Link>
+        {currentUser !== null && (
+          <Link to="/userProfile" id="profile-link">
+            <img
+              src={userPhoto}
+              className="user-profile-link"
+              alt={userPhoto}
+            />
+          </Link>
+        )}
         <SignButton />
       </div>
     </div>

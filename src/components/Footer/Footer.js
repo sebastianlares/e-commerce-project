@@ -58,8 +58,8 @@ function Footer() {
                 href={red.red}
                 alt={red.red}
                 target="_blank"
-                rel="noreferrer"
                 key={index}
+                rel="noopener noreferrer"
               >
                 <red.link style={iconsStyle} />
                 <p>{red.pagina}</p>
@@ -81,10 +81,11 @@ function Footer() {
           <h4>Ayuda</h4>
           <>
             {data.map((item, index) => {
-              const { question, answer } = item;
+              const { question, answer, id } = item;
+              console.log(id);
               return (
                 <>
-                  <p key={index} onClick={openModal}>
+                  <p key={id} onClick={openModal}>
                     {question}
                   </p>
                   <FooterModal
@@ -104,7 +105,7 @@ function Footer() {
         alt="github-link"
         className="github"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         <RiGithubFill />
       </a>

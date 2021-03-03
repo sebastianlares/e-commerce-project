@@ -68,3 +68,7 @@
 .quantity-button button:last-of-type {
   margin-bottom: -3px;
 }
+
+.link-wrapper {
+  width: 230px;
+}

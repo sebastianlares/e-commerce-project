@@ -12,22 +12,25 @@ function Carousel({ images, id, setLink }) {
     history,
   ]);
 
+  const handleDragStart = (e) => {
+    e.preventDefault();
+  };
+
   const items = [
     <img
       onClick={setLink ? onClickHandler : null}
       src={images[0]}
       onDragStart={handleDragStart}
+      alt={id}
     />,
     <img
       onClick={setLink ? onClickHandler : null}
       src={images[1]}
       onDragStart={handleDragStart}
+      alt={id}
     />,
   ];
 
-  const handleDragStart = (e) => {
-    e.preventDefault();
-  };
   return (
     <AliceCarousel
       mouseTracking

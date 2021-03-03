@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import { useGlobalContext } from "../../globalContext";
 import "./buyButton.css";
 
 function BuyButton({ setBuyDB, updateFbItems }) {
+  const [updateItems, setupdateItems] = useState(false);
   const {
     phoneNumber,
     currentUser,
@@ -11,11 +12,16 @@ function BuyButton({ setBuyDB, updateFbItems }) {
     itemsOnCart,
   } = useGlobalContext();
 
+  useEffect(() => {
+    if (updateItems === true) {
+      setBuyDB();
+      updateFbItems(itemsOnCart);
+      removeAllItems();
+    }
+  }, [updateItems]);
+
   const setData = () => {
-    console.log(currentUser);
-    setBuyDB();
-    updateFbItems(itemsOnCart);
-    removeAllItems();
+    setupdateItems(true);
   };
 
   return (

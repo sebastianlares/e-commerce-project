@@ -1,8 +1,19 @@
-Proyecto de E-commerce creado usando React, siendo el mismo el proyecto final de Coderhouse.
+# SimpleCloths
+
+SimpleCloths es un proyecto de E-commerce creado usando React, siendo el mismo el proyecto final del curso de React, Coderhouse.
+
+#
 
 SimpleCloths es un e-commerce de estilo minimalista, en el cual el objetivo es que el usuario pueda navegar de manera cómoda, rápida, y sin complicaciones.
-Para lograr ésto, los componentes de la app cuentan solo con la información necesaria, dejándole al ususario únicamente lo que quiere ver.
 
-La lógica del código está enfocada de manera funcional, manteniendo de esa forma una estructura limpia y ordenada, que sea sencilla de leer.
+## Librerías externas utilizadas
 
-Dependencias extras agregadas: Material-UI y Material-UI icons, para lograr estilos minimalistas en los íconos y botones.
+- @material-ui/core https://www.npmjs.com/package/@material-ui/core : Botones utilizados.
+- react-alice-carousel https://www.npmjs.com/package/react-alice-carousel: Carousel utilizado para slider de imágenes.
+- react-icons https://react-icons.github.io/react-icons/icons?name=ri: Icons utilizados.
+
+## Instalación
+
+1. Forkéa y clonea el repositorio.
+2. En tu terminal, corré `npm install`
+3. Una vez instalado, corre `npm start`. Vas a poder visualizar el proyecto en http://localhost:3000/
