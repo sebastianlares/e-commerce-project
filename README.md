@@ -9,11 +9,11 @@ SimpleCloths es un e-commerce de estilo minimalista, en el cual el objetivo es q
 ## Librerías externas utilizadas
 
 - @material-ui/core https://www.npmjs.com/package/@material-ui/core : Botones utilizados.
-- react-alice-carousel https://www.npmjs.com/package/react-alice-carousel: Carousel utilizado para slider de imágenes.
-- react-icons https://react-icons.github.io/react-icons/icons?name=ri: Icons utilizados.
+- react-alice-carousel https://www.npmjs.com/package/react-alice-carousel : Carousel utilizado para slider de imágenes.
+- react-icons https://react-icons.github.io/react-icons/icons?name=ri : Icons utilizados.
 
 ## Instalación
 
 1. Forkéa y clonea el repositorio.
-2. En tu terminal, corré `npm install`
-3. Una vez instalado, corre `npm start`. Vas a poder visualizar el proyecto en http://localhost:3000/
+2. En tu terminal, corré `npm install`.
+3. Una vez instalado, corre `npm start`. Vas a poder visualizar el proyecto en http://localhost:3000/.
