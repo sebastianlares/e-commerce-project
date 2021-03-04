@@ -7,12 +7,12 @@ const APPID = process.env.REACT_APP_FIREBASE_APPID;
 const AUTHDOMAIN = process.env.REACT_APP_FIREBASE_AUTHDOMAIN;
 
 const app = firebase.initializeApp({
-  apiKey: APIKEY,
-  authDomain: AUTHDOMAIN,
+  apiKey: `${APIKEY}`,
+  authDomain: `${AUTHDOMAIN}`,
   projectId: "coder-e-commerce",
   storageBucket: "coder-e-commerce.appspot.com",
   messagingSenderId: "166405162002",
-  appId: APPID,
+  appId: `${APPID}`,
 });
 
 export const getFirebase = () => {
