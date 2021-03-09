@@ -22,16 +22,16 @@ function Footer() {
     {
       red: "https://www.instagram.com/cushi.homewear/",
       link: RiInstagramFill,
-      pagina: "@cushi.homewear",
+      pagina: "@simplecloths.homewear",
     },
     {
       red: "https://twitter.com/cushiwear",
-      pagina: "@cushiwear",
+      pagina: "@simpleclothswear",
       link: RiTwitterFill,
     },
     {
       red: "https://www.facebook.com/cushi.homewear",
-      pagina: "cushi.homewear",
+      pagina: "simplecloths.homewear",
       link: RiFacebookCircleFill,
     },
   ];
