@@ -4,66 +4,74 @@ import "./userProfileContainer.css";
 import { getFireStore } from "../../firebase/index";
 import { useGlobalContext } from "../../globalContext";
 import firebase from "firebase/app";
+import SignButton from "../../components/navBar/SignButton/SignButton";
 
 function UserProfileContainer() {
   const [userOrderData, setUserOrderData] = useState([]);
   const [deleteOrder, setDeleteOrder] = useState({ id: "", bool: false });
-  const { loadingItems, setLoadingItems, currentUser } = useGlobalContext();
-  const { email } = currentUser;
+  const {
+    loadingItems,
+    setLoadingItems,
+    currentUser,
+    errorRequest,
+    setErrorRequest,
+  } = useGlobalContext();
+  // const { email } = currentUser;
 
   useEffect(() => {
-    setLoadingItems(true);
-
-    const db = getFireStore();
-    const userOrders = db
-      .collection("orders")
-      .where("buyer.email", "==", `${email}`);
-    userOrders
-      .get()
-      .then((querySnap) => {
-        let array = querySnap.docs.map((doc) => {
-          return {
-            ...doc.data(),
-            id: doc.id,
-          };
+    if (currentUser !== null) {
+      setLoadingItems(true);
+      const db = getFireStore();
+      const userOrders = db
+        .collection("orders")
+        .where("buyer.email", "==", `${currentUser.email}`);
+      userOrders
+        .get()
+        .then((querySnap) => {
+          let array = querySnap.docs.map((doc) => {
+            return {
+              ...doc.data(),
+              id: doc.id,
+            };
+          });
+          return array;
+        })
+        .then((array) => {
+          setLoadingItems(false);
+          setUserOrderData(array);
+        })
+        .catch((e) => {
+          setErrorRequest({ userProfile: true });
         });
-        return array;
-      })
-      .then((array) => {
-        setLoadingItems(false);
-        setUserOrderData(array);
-      });
-  }, [email]);
+    }
+  }, [currentUser !== null && currentUser.email]);
 
   useEffect(() => {
-    if (deleteOrder.bool === true) {
+    if (deleteOrder.bool === true && currentUser !== null) {
       setLoadingItems(true);
       const db = getFireStore();
       const itemsToUpdate = db.collection("ItemList");
       userOrderData.map((i) => {
         const { items } = i;
-        console.log(items);
         const { color, id, quantity, size } = items[0];
-        console.log(items[0].id, color, size);
         const increaseValue = firebase.firestore.FieldValue.increment(quantity);
 
-        itemsToUpdate
-          .doc(`${id}`)
-          .update({
-            [`color.${color}.stock.${size}`]: increaseValue,
-          })
-          .then((res) => console.log(res));
+        itemsToUpdate.doc(`${id}`).update({
+          [`color.${color}.stock.${size}`]: increaseValue,
+        });
       });
       const userOrders = db
         .collection("orders")
-        .where("buyer.email", "==", `${email}`);
+        .where("buyer.email", "==", `${currentUser.email}`);
       db.collection("orders")
         .doc(deleteOrder.id)
         .delete()
         .then(() => {
           setDeleteOrder({ id: "", bool: false });
         })
-        .catch((e) => console.log(e));
+        .catch((e) => {
+          setErrorRequest({ userProfile: true });
+        });
 
       userOrders
         .get()
@@ -79,20 +87,28 @@ function UserProfileContainer() {
         .then((array) => {
           setLoadingItems(false);
           setUserOrderData(array);
+        })
+        .catch((e) => {
+          setErrorRequest({ userProfile: true });
         });
     }
   }, [deleteOrder.id]);
 
   return (
-    <>
-      <div className="user-container">
+    <div className="user-container">
+      {currentUser === null ? (
+        <div className="user-login">
+          <p>Para poder acceder al perfil de usuario debés iniciar sesión!</p>
+          <SignButton />
+        </div>
+      ) : (
         <UserProfile
           loading={loadingItems}
           userOrderData={userOrderData}
           setDeleteOrder={setDeleteOrder}
         />
-      </div>
-    </>
+      )}
+    </div>
   );
 }
 

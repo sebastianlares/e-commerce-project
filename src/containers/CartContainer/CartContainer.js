@@ -9,6 +9,7 @@ import { getFireStore } from "../../firebase/index";
 import firebase from "firebase/app";
 import GoToButton from "../../components/GoToButton/GoToButton";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import RequestError from "../../components/RequestError/RequestError";
 
 function CartContainer() {
   const [showButtons, setShowButtons] = useState(false);
@@ -21,6 +22,8 @@ function CartContainer() {
     setOrderId,
     loadingItems,
     setLoadingItems,
+    errorRequest,
+    setErrorRequest,
   } = useGlobalContext();
 
   const setBuyDB = () => {
@@ -41,12 +44,12 @@ function CartContainer() {
       .then(({ id }) => {
         setOrderId(id);
       })
-      .catch((e) => {
-        console.log(e);
-      })
-      .finally(() => {
+      .then(() => {
         setLoadingItems(false);
         setShowButtons(true);
+      })
+      .catch((e) => {
+        setErrorRequest({ cart: true });
       });
   };
 
@@ -90,7 +93,9 @@ function CartContainer() {
         .update({
           [`color.${colorIndex}.stock.${sizeIndex}`]: decreaseValue,
         })
-        .then((res) => console.log(res));
+        .catch((e) => {
+          setErrorRequest({ cart: true });
+        });
     });
   };
 
@@ -99,6 +104,8 @@ function CartContainer() {
       <h1>Mi Carrito</h1>
       {loadingItems && itemsOnCart.length === 0 ? (
         <LoadingSpinner />
+      ) : errorRequest.cart ? (
+        <RequestError />
       ) : showButtons && itemsOnCart.length === 0 ? (
         <div className="buy-container">
           <p>Tu compra fue finalizada con éxito!</p>

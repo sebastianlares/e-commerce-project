@@ -13,7 +13,7 @@ import FooterModal from "../FooterModal/FooterModal";
 import { data } from "../../data/footerData.js";
 
 function Footer() {
-  const { openModal } = useGlobalContext();
+  const { openModal, pageError } = useGlobalContext();
   const iconsStyle = {
     width: "20px",
     height: "20px",
@@ -48,67 +48,67 @@ function Footer() {
   ];
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <section className="redes">
-          <h4>Nuestras Redes</h4>
-          {redes.map((red, index) => {
-            return (
-              <a
-                href={red.red}
-                alt={red.red}
-                target="_blank"
-                key={index}
-                rel="noopener noreferrer"
-              >
-                <red.link style={iconsStyle} />
-                <p>{red.pagina}</p>
-              </a>
-            );
-          })}
-        </section>
-        <section className="contacto">
-          <h4>Contacto</h4>
-          {contacto.map((item, index) => {
-            return (
-              <div className="cnt" key={index}>
-                <item.icon style={iconsStyle} /> <p>{item.data}</p>
-              </div>
-            );
-          })}
-        </section>
-        <section className="ayuda">
-          <h4>Ayuda</h4>
-          <>
-            {data.map((item, index) => {
-              const { question, answer, id } = item;
-              return (
-                <>
-                  <p key={id} onClick={openModal}>
-                    {question}
-                  </p>
-                  <FooterModal
+    <>
+      {!pageError ? (
+        <footer className="footer">
+          <div className="footer-container">
+            <section className="redes">
+              <h4>Nuestras Redes</h4>
+              {redes.map((red, index) => {
+                return (
+                  <a
+                    href={red.red}
+                    alt={red.red}
+                    target="_blank"
                     key={index}
-                    answer={answer}
-                    question={question}
-                  />
-                </>
-              );
-            })}
-          </>
-        </section>
-      </div>
+                    rel="noopener noreferrer"
+                  >
+                    <red.link style={iconsStyle} />
+                    <p>{red.pagina}</p>
+                  </a>
+                );
+              })}
+            </section>
+            <section className="contacto">
+              <h4>Contacto</h4>
+              {contacto.map((item, index) => {
+                return (
+                  <div className="cnt" key={index}>
+                    <item.icon style={iconsStyle} /> <p>{item.data}</p>
+                  </div>
+                );
+              })}
+            </section>
+            <section className="ayuda">
+              <h4>Ayuda</h4>
+              <>
+                {data.map((item) => {
+                  const { question, answer, id } = item;
+                  return (
+                    <React.Fragment key={id}>
+                      <FooterModal />
+                      <p onClick={() => openModal(question, answer)}>
+                        {question}
+                      </p>
+                    </React.Fragment>
+                  );
+                })}
+              </>
+            </section>
+          </div>
 
-      <a
-        href="https://github.com/sebastianlares"
-        alt="github-link"
-        className="github"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <RiGithubFill />
-      </a>
-    </footer>
+          <a
+            href="https://github.com/sebastianlares"
+            alt="github-link"
+            className="github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <RiGithubFill />
+          </a>
+        </footer>
+      ) : null}
+    </>
   );
 }
 

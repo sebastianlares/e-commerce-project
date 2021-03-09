@@ -3,12 +3,12 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { useGlobalContext } from "../../globalContext";
 import { useParams } from "react-router-dom";
 import { getFireStore } from "../../firebase";
+import RequestError from "../../components/RequestError/RequestError";
 
 function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
-
   const { id } = useParams();
-  const { setItemDetail } = useGlobalContext();
+  const { setItemDetail, errorRequest, setErrorRequest } = useGlobalContext();
 
   useEffect(() => {
     setLoading(true);
@@ -20,14 +20,19 @@ function ItemDetailContainer() {
       .then((doc) => {
         if (!doc.exists) {
           console.log("archivo no encontrado");
+          setErrorRequest({ itemDetail: true });
+          return;
+        } else {
+          setLoading(false);
+          setItemDetail({ ...doc.data(), id: doc.id });
         }
-        setLoading(false);
-        setItemDetail({ ...doc.data(), id: doc.id });
       })
       .catch((e) => {
-        console.log(e);
+        setErrorRequest({ itemDetail: true });
       });
-  }, [id, setItemDetail]);
+  }, [id, setItemDetail, errorRequest.itemDetail]);
+
+  console.log(errorRequest.itemDetail);
 
   const handleColor = (color) => {
     if (color === "black") {
@@ -48,15 +53,23 @@ function ItemDetailContainer() {
   };
 
   return (
-    <div className="detail-container">
-      <h3
-        className="comfy"
-        style={{ display: `${loading ? "none" : "block"}` }}
-      >
-        Estate cómodo <span>todo</span> el día
-      </h3>
-      <ItemDetail loading={loading} handleColor={handleColor} />
-    </div>
+    <>
+      <div className="detail-container">
+        {errorRequest.itemDetail ? (
+          <RequestError styled={"300px"} />
+        ) : (
+          <>
+            <h3
+              className="comfy"
+              style={{ display: `${loading ? "none" : "block"}` }}
+            >
+              Estate cómodo <span>todo</span> el día
+            </h3>
+            <ItemDetail loading={loading} handleColor={handleColor} />
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

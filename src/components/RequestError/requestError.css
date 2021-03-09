@@ -1,0 +1,35 @@
+.requestError {
+  padding-top: 80px;
+  width: 800px;
+  height: fit-content;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.requestError svg {
+  width: 60px;
+  height: 60px;
+  color: #d51212;
+  margin-bottom: 20px;
+}
+
+.requestError button {
+  margin-top: 20px;
+  width: 200px;
+  height: 30px;
+  background: white;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: red;
+}
+
+.requestError p {
+  font-size: 30px;
+  font-weight: 350;
+  text-align: center;
+  color: var(--grey);
+  letter-spacing: 1px;
+}

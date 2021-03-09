@@ -1,0 +1,28 @@
+.error404 {
+  padding-top: 140px;
+  min-height: 815px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error404 p {
+  font-size: 40px;
+  padding-bottom: 20px;
+  font-weight: 300;
+}
+
+.error404 svg {
+  width: 100px;
+  height: 100px;
+  color: red;
+  margin-bottom: 20px;
+}
+
+.error404 a {
+  font-size: 33px;
+  font-weight: 300;
+
+  color: blue;
+}

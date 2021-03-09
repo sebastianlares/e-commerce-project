@@ -9,7 +9,12 @@ import SubMenu from "./SubMenu/SubMenu";
 function NavBar() {
   const [navbarBackground, setNavbarBackground] = useState(false);
   const [userPhoto, setUserPhoto] = useState();
-  const { itemsOnCart, currentUser } = useGlobalContext();
+  const {
+    itemsOnCart,
+    currentUser,
+    pageError,
+    setErrorRequest,
+  } = useGlobalContext();
   const links = [
     { name: "home", id: 1 },
     { name: "productos", id: 2 },
@@ -34,46 +39,55 @@ function NavBar() {
   }, []);
 
   return (
-    <div className={navbarBackground ? "navbar active " : "navbar"}>
-      <div className="brand-name">
-        <Link to="/" style={{ border: "none" }}>
-          <h3 className="simpleShop">SimpleCloths</h3>
-        </Link>
-      </div>
-      <ul>
-        {links.map((link) => {
-          const { name, id } = link;
-          return name === "productos" ? (
-            <div key={id} to={`/${name}`} className={"category"}>
-              <SubMenu category={"productos"} className={"category"} />
-            </div>
-          ) : (
-            <Link key={id} to={`/${name}`}>
-              <li>{name}</li>
+    <>
+      {!pageError && (
+        <div className={navbarBackground ? "navbar active " : "navbar"}>
+          <div className="brand-name">
+            <Link to="/" style={{ border: "none" }}>
+              <h3 className="simpleShop">SimpleCloths</h3>
             </Link>
-          );
-        })}
-      </ul>
-      <div className="user-section">
-        {itemsOnCart === null ||
-        undefined ||
-        itemsOnCart.length === 0 ? null : (
-          <Link to="/cart" id="cartWidget">
-            <CartWidget />
-          </Link>
-        )}
-        {currentUser !== null && (
-          <Link to="/userProfile" id="profile-link">
-            <img
-              src={userPhoto}
-              className="user-profile-link"
-              alt={userPhoto}
-            />
-          </Link>
-        )}
-        <SignButton />
-      </div>
-    </div>
+          </div>
+          <ul>
+            {links.map((link) => {
+              const { name, id } = link;
+              return name === "productos" ? (
+                <div
+                  key={id}
+                  to={`/${name}`}
+                  className={"category"}
+                  onClick={() => setErrorRequest({ itemList: false })}
+                >
+                  <SubMenu category={"productos"} className={"category"} />
+                </div>
+              ) : (
+                <Link key={id} to={`/${name}`}>
+                  <li>{name}</li>
+                </Link>
+              );
+            })}
+          </ul>
+          <div className="user-section">
+            {itemsOnCart === null ||
+            undefined ||
+            itemsOnCart.length === 0 ? null : (
+              <Link to="/cart" id="cartWidget">
+                <CartWidget />
+              </Link>
+            )}
+            {currentUser !== null && (
+              <Link to="/userProfile" id="profile-link">
+                <img
+                  src={userPhoto}
+                  className="user-profile-link"
+                  alt={userPhoto}
+                />
+              </Link>
+            )}
+            <SignButton />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

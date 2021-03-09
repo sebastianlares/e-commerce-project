@@ -3,8 +3,9 @@ import { useGlobalContext } from "../../globalContext";
 import "./footerModal.css";
 import { RiCloseLine } from "react-icons/ri";
 
-function FooterModal({ answer, question }) {
-  const { isModalOpen, closeModal } = useGlobalContext();
+function FooterModal() {
+  const { isModalOpen, closeModal, modalData } = useGlobalContext();
+  const { question, answer } = modalData;
   return (
     <div
       className={`${

@@ -6,10 +6,10 @@ export const data = [
     question: "Cómo hago para comprar?",
     answer: (
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa ducimus
-        mollitia recusandae id, aperiam culpa veniam consectetur officiis qui.
-        Unde, impedit in! Officiis officia odio earum veniam quisquam deleniti
-        ipsam!
+        1. Elegí el producto que querés comprar, seleccionando el talle y la
+        cantidad correspondiente. <br></br>2. Hacé click en el botón 'Agregar al
+        carrito'. Podés seguir agregando otros productos al carrito, o a través
+        del botón 'Terminar mi compra' podes finalizar la misma.
       </p>
     ),
   },
@@ -18,9 +18,10 @@ export const data = [
     question: "Cómo hago si necesito una devolución?",
     answer: (
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel ad eaque
-        corrupti voluptatem! Hic corrupti expedita accusantium dicta alias rem,
-        aliquam magnam fugiat tempore! Modi minima vel fugit obcaecati beatae!
+        Los pedidos pueden ser cancelados hasta el momento que son empaquetados.
+        Generalmente las primeras 24 horas una vez confirmada la compra. Deberás
+        enviar un correo a simplecloths.wear@gmail.com con el Número de Orden,
+        tus datos e ítem/s de la compra.
       </p>
     ),
   },
@@ -29,9 +30,9 @@ export const data = [
     question: "Aceptan diferentes métodos de pago?",
     answer: (
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
-        earum, vitae quae corrupti dolor, quia aliquid repellat odit maxime
-        laborum ratione quod amet, ut non. Sequi nisi dolorum debitis sint.
+        Si! Aceptamos tanto tarjetas de débito como de crédito, tanto Visa como
+        Mastercard, además de pagos en efectivo y también transferencias
+        bancarias.
       </p>
     ),
   },

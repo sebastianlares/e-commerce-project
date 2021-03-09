@@ -5,11 +5,18 @@ import { getFireStore } from "../../firebase/index";
 import "./itemListContainer.css";
 import { useGlobalContext } from "../../globalContext";
 import Button from "@material-ui/core/Button";
+import RequestError from "../../components/RequestError/RequestError";
 
 function ItemListContainer({ greeting }) {
-  const { loadingItems, setLoadingItems, setData, data } = useGlobalContext();
+  const {
+    loadingItems,
+    setLoadingItems,
+    setData,
+    data,
+    errorRequest,
+    setErrorRequest,
+  } = useGlobalContext();
   const { categoryId } = useParams();
-  console.log(categoryId);
 
   useEffect(() => {
     setLoadingItems(true);
@@ -42,10 +49,19 @@ function ItemListContainer({ greeting }) {
         return array;
       })
       .then((array) => {
-        setLoadingItems(false);
-        setData(array);
+        if (!array.length) {
+          setLoadingItems(false);
+          setErrorRequest({ itemList: true });
+          return;
+        } else {
+          setLoadingItems(false);
+          setData(array);
+        }
+      })
+      .catch((e) => {
+        setErrorRequest({ itemList: true });
       });
-  }, [categoryId]);
+  }, [categoryId, errorRequest.itemList]);
 
   const loadMoreItems = () => {
     const db = getFireStore();
@@ -64,6 +80,9 @@ function ItemListContainer({ greeting }) {
       })
       .then((array) => {
         setData(array);
+      })
+      .catch((e) => {
+        setErrorRequest({ itemList: true });
       });
   };
 
@@ -71,6 +90,7 @@ function ItemListContainer({ greeting }) {
     <>
       <div className="item-list-container">
         <h2 className="container-greeting">{greeting}</h2>
+        <p>COLECCIÓN 2020</p>
         {loadingItems ? (
           <div className="sk-listContainer">
             <div className="sk-chase-dot"></div>
@@ -80,9 +100,10 @@ function ItemListContainer({ greeting }) {
             <div className="sk-chase-dot"></div>
             <div className="sk-chase-dot"></div>
           </div>
+        ) : errorRequest.itemList ? (
+          <RequestError />
         ) : (
           <>
-            <p>COLECCIÓN 2020</p>
             <ItemList data={data} categoryId={categoryId} />
             {data.length === 6 && categoryId !== "topVentas" && (
               <Button

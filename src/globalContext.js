@@ -25,6 +25,7 @@ const AppContext = React.createContext();
 
 const GlobalProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState({ question: "", answer: "" });
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const [loadingItems, setLoadingItems] = useState(false);
   const [itemsOnCart, setItemsOnCart] = useState(getLocalStorage("cartItems"));
@@ -34,6 +35,14 @@ const GlobalProvider = ({ children }) => {
   const [phoneNumber, setPhoneNumber] = useState(getLocalStorage("phone"));
   const [orderId, setOrderId] = useState(getLocalStorage("orderId"));
   const [showEdit, setShowEdit] = useState(false);
+  const [errorRequest, setErrorRequest] = useState({
+    itemList: false,
+    itemDetail: false,
+    form: false,
+    cart: false,
+    userProfile: false,
+  });
+  const [pageError, setPageError] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("phone", JSON.stringify(phoneNumber));
@@ -49,7 +58,8 @@ const GlobalProvider = ({ children }) => {
 
   const { stock } = itemDetail;
 
-  const openModal = () => {
+  const openModal = (q, a) => {
+    setModalData({ question: q, answer: a });
     setIsModalOpen(true);
   };
 
@@ -163,6 +173,11 @@ const GlobalProvider = ({ children }) => {
         openSubmenu,
         showEdit,
         setShowEdit,
+        pageError,
+        setPageError,
+        errorRequest,
+        setErrorRequest,
+        modalData,
       }}
     >
       {children}

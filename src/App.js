@@ -11,6 +11,7 @@ import { useGlobalContext } from "./globalContext";
 import React from "react";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Contact from "./components/Contact/Contact";
+import Error404 from "./components/Error404/Error404";
 
 function App() {
   const { handleSubmenu } = useGlobalContext();
@@ -18,20 +19,23 @@ function App() {
     <div className="App" onMouseOver={handleSubmenu}>
       <NavBar />
       <Switch>
-        <Route path="/cart" component={CartContainer} />
+        <Route exact path="/cart" component={CartContainer} />
         <Route path="/category/:categoryId">
           <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
         </Route>
-        <Route path="/userProfile" component={UserProfileContainer} />
+        <Route exact path="/userProfile" component={UserProfileContainer} />
 
         <Route exact path="/item/:id" component={ItemDetailContainer} />
-        <Route path="/productos">
+        <Route exact path="/productos">
           <ItemListContainer greeting={"#HOMEWEAR #NOGENDER"} />
         </Route>
-        <Route path="/nosotros" component={AboutUs} />
-        <Route path="/contacto" component={Contact} />
+        <Route exact path="/nosotros" component={AboutUs} />
+        <Route exact path="/contacto" component={Contact} />
 
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/e-commerce-project/" component={Home} />
+        <Route component={Error404} />
       </Switch>
       <Footer />
     </div>
