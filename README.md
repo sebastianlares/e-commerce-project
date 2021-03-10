@@ -5,6 +5,7 @@ SimpleCloths es un proyecto de E-commerce creado usando React, siendo el mismo e
 #
 
 SimpleCloths es un e-commerce de estilo minimalista, en el cual el objetivo es que el usuario pueda navegar de manera cómoda, rápida, y sin complicaciones.
+Live version: https://sebastianlares.github.io/e-commerce-project/
 
 ## Librerías externas utilizadas
 
