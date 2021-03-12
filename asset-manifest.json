@@ -1,16 +1,16 @@
 {
-  "main.css": "/e-commerce-project/static/css/main.1b7e330b.chunk.css",
-  "main.js": "/e-commerce-project/static/js/main.7d4fc496.chunk.js",
-  "main.js.map": "/e-commerce-project/static/js/main.7d4fc496.chunk.js.map",
+  "main.css": "/e-commerce-project/static/css/main.f2b410a3.chunk.css",
+  "main.js": "/e-commerce-project/static/js/main.9037b657.chunk.js",
+  "main.js.map": "/e-commerce-project/static/js/main.9037b657.chunk.js.map",
   "static/css/1.b470b34d.chunk.css": "/e-commerce-project/static/css/1.b470b34d.chunk.css",
   "static/js/1.ce978201.chunk.js": "/e-commerce-project/static/js/1.ce978201.chunk.js",
   "static/js/1.ce978201.chunk.js.map": "/e-commerce-project/static/js/1.ce978201.chunk.js.map",
   "runtime~main.js": "/e-commerce-project/static/js/runtime~main.cca7ee0e.js",
   "runtime~main.js.map": "/e-commerce-project/static/js/runtime~main.cca7ee0e.js.map",
-  "static/media/home.css": "/e-commerce-project/static/media/background-mujer-1.c6762ce0.jpg",
+  "static/media/home.css": "/e-commerce-project/static/media/photo5064747713618356472.1d64fe3a.jpg",
+  "static/css/main.f2b410a3.chunk.css.map": "/e-commerce-project/static/css/main.f2b410a3.chunk.css.map",
   "static/css/1.b470b34d.chunk.css.map": "/e-commerce-project/static/css/1.b470b34d.chunk.css.map",
-  "static/css/main.1b7e330b.chunk.css.map": "/e-commerce-project/static/css/main.1b7e330b.chunk.css.map",
   "index.html": "/e-commerce-project/index.html",
-  "precache-manifest.d6b0c793f4ed50e664afe3a716f9570a.js": "/e-commerce-project/precache-manifest.d6b0c793f4ed50e664afe3a716f9570a.js",
+  "precache-manifest.c154864a6d4141386f015994ccc439ea.js": "/e-commerce-project/precache-manifest.c154864a6d4141386f015994ccc439ea.js",
   "service-worker.js": "/e-commerce-project/service-worker.js"
 }
