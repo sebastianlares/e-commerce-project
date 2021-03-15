@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "04bf9d0f6580068eefe6",
-    "url": "/e-commerce-project/static/css/main.5d6a73b3.chunk.css"
+    "revision": "79431874bfc33b1b7934",
+    "url": "/e-commerce-project/static/css/main.3fcf2c65.chunk.css"
   },
   {
-    "revision": "04bf9d0f6580068eefe6",
-    "url": "/e-commerce-project/static/js/main.04bf9d0f.chunk.js"
+    "revision": "79431874bfc33b1b7934",
+    "url": "/e-commerce-project/static/js/main.79431874.chunk.js"
   },
   {
     "revision": "ce978201afa14f297acf",
@@ -20,15 +20,15 @@ self.__precacheManifest = [
     "url": "/e-commerce-project/static/js/runtime~main.cca7ee0e.js"
   },
   {
-    "revision": "c6762ce0be93734d3eb5c3c32c0f5da9",
-    "url": "/e-commerce-project/static/media/background-mujer-1.c6762ce0.jpg"
-  },
-  {
     "revision": "1d64fe3a3c1435ed854779277efd7b5a",
     "url": "/e-commerce-project/static/media/photo5064747713618356472.1d64fe3a.jpg"
   },
   {
-    "revision": "8f561a2a3b262e538707f92c47831443",
+    "revision": "c6762ce0be93734d3eb5c3c32c0f5da9",
+    "url": "/e-commerce-project/static/media/background-mujer-1.c6762ce0.jpg"
+  },
+  {
+    "revision": "0fc7810e0ae14f23783845077b87431a",
     "url": "/e-commerce-project/index.html"
   }
 ];
