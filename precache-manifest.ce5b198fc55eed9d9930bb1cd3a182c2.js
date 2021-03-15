@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "15d683ae8fa74b2dfb49",
-    "url": "/e-commerce-project/static/css/main.fd6f687a.chunk.css"
+    "revision": "30ccb51cef1db424dbd9",
+    "url": "/e-commerce-project/static/css/main.bf7c7d1d.chunk.css"
   },
   {
-    "revision": "15d683ae8fa74b2dfb49",
-    "url": "/e-commerce-project/static/js/main.15d683ae.chunk.js"
+    "revision": "30ccb51cef1db424dbd9",
+    "url": "/e-commerce-project/static/js/main.30ccb51c.chunk.js"
   },
   {
     "revision": "ce978201afa14f297acf",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/e-commerce-project/static/media/background-mujer-1.c6762ce0.jpg"
   },
   {
-    "revision": "50baa1089a06125a7578ead6aed8bde5",
+    "revision": "34f36b7f3f261c0b7bcf4792a96a07a8",
     "url": "/e-commerce-project/index.html"
   }
 ];
