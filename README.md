@@ -17,6 +17,6 @@ Live version: https://sebastianlares.github.io/e-commerce-project/
 
 ## Instalación
 
-1. Forkéa y clonea el repositorio.
+1. Forkeá y cloneá el repositorio.
 2. En tu terminal, corré `npm install`.
 3. Una vez instalado, corre `npm start`. Vas a poder visualizar el proyecto en http://localhost:3000/.
